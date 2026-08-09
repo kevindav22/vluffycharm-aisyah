@@ -71,7 +71,7 @@ export const generateCharms = (): Charm[] => {
         name: extractedName,
         image: fullImagePath,
         price: group.price,
-        category: categoryKey as 'luma-pink' | 'luma-calm' | 'luma-zodiac' | 'luma-3d',
+        category: categoryKey as 'lumi-pink' | 'lumi-calm' | 'lumi-zodiac' | 'lumi-3d' | 'kpop' | 'luxor-3d' | 'luxor-hanging-3d',
       };
     });
   });

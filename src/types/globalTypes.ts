@@ -9,7 +9,7 @@ export interface Charm {
   name: string;
   price: number;
   image: string;
-  category: "luma-pink" | "luma-calm" | "luma-zodiac" | "luma-3d";
+  category: "lumi-pink" | "lumi-calm" | "lumi-zodiac" | "lumi-3d" | "kpop" | "luxor-3d" | "luxor-hanging-3d" | "solid-color";
 }
 
 export type SelectedCharm = Charm & {
