@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { HiBars3, HiSparkles, HiXMark } from "react-icons/hi2";
 import { Button, WhatsAppButton } from "../ui/Button";
 import { profilData } from "@/data/statisData";
+import SafeImage from "../ui/SafeImage";
 
 const navItems = [
   {
@@ -46,18 +47,15 @@ const Header = () => {
           className={`flex items-center justify-between px-5 md:px-7 transition-all duration-300 ${scrolled ? "h-16" : "h-[76px]"}`}
         >
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-rose-500 via-pink-500 to-fuchsia-500 text-white shadow-md shadow-rose-200">
-              <HiSparkles className="size-5" />
-            </div>
-
-            <div>
-              <p className="text-xl font-extrabold text-slate-900">
-                {profilData?.name}
-              </p>
-              <p className="-mt-1 text-sm text-rose-500">
-                {profilData?.tagline}
-              </p>
-            </div>
+            <SafeImage
+              src="/logo/logovluffy.webp"
+              alt={profilData?.name || "Logo"}
+              width={140}
+              height={40}
+              className="h-10 md:h-12"
+              style={{ width: "auto" }}
+              priority
+            />
           </Link>
 
           <nav className="hidden items-center gap-10 md:flex">

@@ -1,25 +1,25 @@
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
 export function normalizePhone(phone: string) {
-  return phone.replace(/\D/g, '');
+  return phone.replace(/\D/g, "");
 }
 
 export function formatWhatsAppLink(phone: string, message?: string) {
   const normalized = normalizePhone(phone);
-  const text = message ? encodeURIComponent(message) : '';
+  const text = message ? encodeURIComponent(message) : "";
 
-  return `https://wa.me/${normalized}${text ? `?text=${text}` : ''}`;
+  return `https://wa.me/${normalized}${text ? `?text=${text}` : ""}`;
 }
 
 export function formatRupiah(value: number) {
-  return new Intl.NumberFormat('id-ID', {
-    style: 'currency',
-    currency: 'IDR',
+  return new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
     maximumFractionDigits: 0,
   }).format(value);
 }
@@ -27,17 +27,21 @@ export function formatRupiah(value: number) {
 export function slugify(text: string) {
   return text
     .toLowerCase()
-    .replace(/&/g, 'dan')
-    .replace(/\//g, '-')
-    .replace(/\s+/g, '-')
-    .replace(/[^\w-]+/g, '')
-    .replace(/--+/g, '-')
-    .replace(/^-+|-+$/g, '');
+    .replace(/&/g, "dan")
+    .replace(/\//g, "-")
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 // lib/scrollToTop.ts
 
-export const handleScrollToTop = (e: React.MouseEvent<HTMLAnchorElement>, href: string, callback?: () => void) => {
+export const handleScrollToTop = (
+  e: React.MouseEvent<HTMLAnchorElement>,
+  href: string,
+  callback?: () => void,
+) => {
   callback?.();
 
   const currentPath = window.location.pathname;
@@ -47,20 +51,20 @@ export const handleScrollToTop = (e: React.MouseEvent<HTMLAnchorElement>, href: 
 
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   }
 };
 
 //generate CharmData
-import { charmData } from '@/data/charm';
-import type { Charm } from '@/types/globalTypes';
+import { charmData } from "@/data/charm";
+import type { Charm } from "@/types/globalTypes";
 export const generateCharms = (): Charm[] => {
   let globalId = 1;
 
   return Object.entries(charmData).flatMap(([categoryKey, group]) => {
     return group.images.map((fileName) => {
-      const extractedName = fileName.replace(/\.[^/.]+$/, '');
+      const extractedName = fileName.replace(/\.[^/.]+$/, "");
       const fullImagePath = `${group.basePath}${fileName}`;
 
       const currentId = globalId;
@@ -71,7 +75,20 @@ export const generateCharms = (): Charm[] => {
         name: extractedName,
         image: fullImagePath,
         price: group.price,
-        category: categoryKey as 'lumi-pink' | 'lumi-calm' | 'lumi-zodiac' | 'lumi-3d' | 'kpop' | 'luxor-3d' | 'luxor-hanging-3d',
+        category: categoryKey as
+          | "solid-color"
+          | "lumi-pink"
+          | "lumi-blue"
+          | "lumi-red"
+          | "lumi-calm"
+          | "lumi-zodiac"
+          | "lumi-3d"
+          | "luxor-3d"
+          | "luxor-hanging-3d"
+          | "hero"
+          | "harry-potter"
+          | "otomotif"
+          | "polka",
       };
     });
   });

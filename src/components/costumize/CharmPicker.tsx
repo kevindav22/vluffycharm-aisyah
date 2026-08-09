@@ -13,14 +13,21 @@ type Props = {
 };
 
 type CategoryType =
+  | "solid-color"
   | "lumi-pink"
+  | "lumi-blue"
+  | "lumi-red"
   | "lumi-calm"
   | "lumi-zodiac"
   | "lumi-3d"
   | "kpop"
   | "luxor-3d"
   | "luxor-hanging-3d"
-  | "solid-color";
+  | "hero"
+  | "harry-potter"
+  | "otomotif"
+  | "polka";
+  
 
 const CharmPicker = ({ charms, onSelect }: Props) => {
   const [search, setSearch] = useState("");
@@ -29,14 +36,20 @@ const CharmPicker = ({ charms, onSelect }: Props) => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const categories: { value: CategoryType; label: string }[] = [
+    { value: "solid-color", label: "Solid Color" },
     { value: "lumi-pink", label: "Lumi Pink" },
+    { value: "lumi-blue", label: "Lumi Blue" },
+    { value: "lumi-red", label: "Lumi Red" },
     { value: "lumi-calm", label: "Lumi Calm" },
     { value: "lumi-zodiac", label: "Lumi Zodiac" },
     { value: "lumi-3d", label: "Lumi 3D" },
-    { value: "kpop", label: "Kpop" },
     { value: "luxor-3d", label: "Luxor 3D" },
     { value: "luxor-hanging-3d", label: "Lux Hanging 3D" },
-    { value: "solid-color", label: "Solid Color" },
+    { value: "kpop", label: "Kpop" },
+    { value: "hero", label: "Hero" },
+    { value: "harry-potter", label: "Harry Potter" },
+    { value: "otomotif", label: "Otomotif" },
+    { value: "polka", label: "Polka" },
   ];
 
   const currentLabel =
