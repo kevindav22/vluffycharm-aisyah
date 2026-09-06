@@ -46,68 +46,34 @@ const testimonials = [
 ];
 
 const stats = [
-  {
-    value: 4.8,
-    decimals: 1,
-    suffix: '★',
-    label: 'Rating Pelanggan',
-  },
-  {
-    value: 127,
-    suffix: '+',
-    label: 'Pesanan Selesai',
-  },
-  {
-    value: 96,
-    suffix: '%',
-    label: 'Pelanggan Puas',
-  },
-  {
-    value: 24,
-    suffix: '+',
-    label: 'Pilihan Charm',
-  },
+  { value: 4.8, decimals: 1, suffix: '★', label: 'Rating' },
+  { value: 127, suffix: '+', label: 'Pesanan' },
+  { value: 96, suffix: '%', label: 'Puas' },
+  { value: 24, suffix: '+', label: 'Charm' },
 ];
 
 const TestimonialSection = () => {
   const [emblaRef] = useEmblaCarousel(
-    {
-      loop: true,
-      align: 'start',
-    },
-    [
-      Autoplay({
-        delay: 3500,
-        stopOnInteraction: false,
-      }),
-    ],
+    { loop: true, align: 'start' },
+    [Autoplay({ delay: 3500, stopOnInteraction: false })],
   );
 
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div className="container mx-auto max-w-7xl px-5 py-12 md:px-8 lg:px-12">
-        <div className="mx-auto mb-12 max-w-3xl text-center">
-          <span className="mb-4 inline-flex rounded-full border border-rose-200 bg-rose-50 px-4 py-2 text-sm font-medium text-rose-600">Customer Stories</span>
-          <h2 className="mb-5 bg-gradient-to-r from-rose-500 via-pink-500 to-fuchsia-500 bg-clip-text text-3xl font-black text-transparent md:text-4xl">Cerita Manis dari Mereka yang Sudah Memiliki Charmify</h2>
-          <p className="text-base leading-relaxed text-slate-600 md:text-lg">Setiap bracelet yang dibuat memiliki cerita yang berbeda. Berikut beberapa pengalaman pelanggan yang telah mempercayakan momen spesial mereka kepada Charmify.</p>
-        </div>
+    <section className="bg-white ">
+      <div className="container mx-auto max-w-7xl py-6 md:py-12 px-5 md:px-8 lg:px-12">
+        <h2 className="text-xl font-bold leading-tight text-slate-900 md:text-2xl">Apa Kata Mereka?</h2>
 
-        {/* Carousel */}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="-ml-6 flex">
             {testimonials.map((item) => (
               <div key={item.name} className="min-w-0 flex-[0_0_100%] pl-6 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]">
-                <article className="flex h-full flex-col rounded-xl border border-rose-100 bg-white p-6 shadow-sm transition-all duration-300  hover:border-rose-200 hover:shadow-lg">
-                  {/* Rating */}
+                <article className="flex h-full flex-col rounded-xl border border-rose-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-rose-200 hover:shadow-lg">
                   <div className="mb-2 flex gap-1">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <FiStar key={star} className={`size-5 ${star <= item.rating ? 'fill-amber-400 text-amber-400' : 'text-amber-300'}`} />
                     ))}
                   </div>
-                  {/* Review */}
-                  <p className="mb-3 flex-1 leading-relaxed text-slate-600">"{item.review}"</p>
-
-                  {/* Profile */}
+                  <p className="mb-3 flex-1 leading-relaxed text-slate-600">&quot;{item.review}&quot;</p>
                   <div className="flex items-center gap-3 border-t border-rose-100 pt-4">
                     <FaUserCircle className="text-5xl text-rose-300" />
                     <div>
@@ -121,20 +87,16 @@ const TestimonialSection = () => {
           </div>
         </div>
 
-        {/* Statistics */}
-        <div className="mt-12 rounded-xl border border-rose-100 bg-gradient-to-r from-rose-50 via-white to-fuchsia-50 p-8 md:p-10">
-          <div className="grid grid-cols-2 gap-4 text-center md:grid-cols-3 lg:grid-cols-4">
-            {stats.map((item) => (
-              <div key={item.label}>
-                <div className="mb-2 text-4xl font-black text-rose-500">
-                  <CountUp end={item.value} duration={2.5} decimals={item.decimals || 0} enableScrollSpy scrollSpyOnce />
-                  {item.suffix}
-                </div>
-
-                <p className="text-slate-600">{item.label}</p>
+        <div className="mt-8 grid grid-cols-2 gap-4 rounded-xl border border-rose-100 bg-gradient-to-r from-rose-50 via-white to-fuchsia-50 p-6 md:grid-cols-4">
+          {stats.map((item) => (
+            <div key={item.label} className="text-center">
+              <div className="mb-1 text-2xl font-black text-rose-500 md:text-3xl">
+                <CountUp end={item.value} duration={2.5} decimals={item.decimals || 0} enableScrollSpy scrollSpyOnce />
+                {item.suffix}
               </div>
-            ))}
-          </div>
+              <p className="text-sm text-slate-600">{item.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

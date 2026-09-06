@@ -1,88 +1,55 @@
-'use client';
+import { FiShield, FiTruck, FiHeadphones } from "react-icons/fi";
+import { MdWorkspacePremium } from "react-icons/md";
 
-import Link from 'next/link';
-import { FiHeart, FiStar, FiGift, FiDollarSign, FiGrid, FiEdit3 } from 'react-icons/fi';
-import { HiSparkles } from 'react-icons/hi';
-
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
+const features = [
+  {
+    icon: MdWorkspacePremium,
+    title: "Premium",
+    description: "Kualitas terbaik & eksklusif",
+  },
+  {
+    icon: FiShield,
+    title: "Terpercaya",
+    description: "Material aman kulit sensitif",
+  },
+  {
+    icon: FiTruck,
+    title: "FastOrder",
+    description: "Pesanan diproses cepat",
+  },
+  {
+    icon: FiHeadphones,
+    title: "FastRespon",
+    description: "Siap bantu kapan saja",
+  },
+];
 
 const WhyChooseUsSection = () => {
-  const [emblaRef] = useEmblaCarousel(
-    {
-      loop: true,
-      align: 'start',
-    },
-    [Autoplay({ delay: 3500, stopOnInteraction: false })],
-  );
-
-  const features = [
-    {
-      icon: FiHeart,
-      title: 'Penuh Makna',
-      description: 'Setiap charm merepresentasikan cerita, kenangan, dan momen berharga dalam hidupmu.',
-    },
-    {
-      icon: FiStar,
-      title: 'Elegan & Feminin',
-      description: 'Desain soft, modern, dan timeless yang cocok untuk semua gaya perempuan.',
-    },
-    {
-      icon: FiDollarSign,
-      title: 'Terjangkau',
-      description: 'Luxury look tanpa harus mahal, tetap stylish dengan harga yang bersahabat.',
-    },
-    {
-      icon: FiGift,
-      title: 'Premium Quality',
-      description: 'Material pilihan dengan finishing detail yang halus dan tahan lama.',
-    },
-    {
-      icon: FiGrid,
-      title: 'Banyak Varian Model',
-      description: 'Ratusan desain charm yang bisa kamu mix & match sesuai mood.',
-    },
-    {
-      icon: FiEdit3,
-      title: 'Custom Personal',
-      description: 'Buat bracelet yang benar-benar unik sesuai cerita dan identitasmu.',
-    },
-  ];
-
   return (
-    <section className="bg-white">
-      <div className="container mx-auto max-w-7xl px-5 py-12 md:px-8 lg:px-12">
-        {/* HEADER */}
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-rose-200/80 bg-white/80 px-4 py-2 text-sm font-medium text-rose-600 shadow-sm backdrop-blur">
-            <HiSparkles className="size-4" />
-            Kenapa Pilih Charmify
-          </span>
-          <h2 className="mb-4 text-2xl font-black text-slate-900 md:text-3xl lg:text-4xl">Lebih dari Sekadar Aksesoris</h2>
-          <p className="text-slate-600 md:text-lg">Charm yang dirancang untuk menemani cerita, perjalanan, dan versi terbaik dari dirimu.</p>
-        </div>
+    <section className="relative z-30 mx-auto -mt-16 max-w-7xl px-4 md:-mt-12 px-5 md:px-8 lg:px-12">
+      <div className="rounded-xl bg-white p-4 shadow-md md:rounded-2xl md:p-7">
+        <div className="grid grid-cols-2 gap-x-2 gap-y-4 md:grid-cols-4 md:gap-0 md:divide-x md:divide-rose-900">
+          {features.map((feature) => {
+            const Icon = feature.icon;
 
-        {/* EMBLA CAROUSEL */}
-        <div className="mt-14 overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-6">
-            {features.map((feature) => {
-              const Icon = feature.icon;
+            return (
+              <div
+                key={feature.title}
+                className="flex items-center gap-2.5 px-2 text-left md:justify-center md:gap-3 md:px-4"
+              >
+                <Icon className="text-2xl text-rose-900/80 mix-blend-multiply shrink-0 md:text-3xl lg:text-4xl" />
 
-              return (
-                <div key={feature.title} className="min-w-[85%] md:min-w-[45%] lg:min-w-[30%]">
-                  <div className="group h-full rounded-3xl border border-rose-100 bg-gradient-to-b from-white to-rose-50/40 p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                    <div className="mb-5 flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-500 to-pink-500 text-white shadow-lg shadow-rose-200">
-                      <Icon className="text-xl" />
-                    </div>
-
-                    <h3 className="mb-3 text-xl font-bold text-slate-900">{feature.title}</h3>
-
-                    <p className="leading-relaxed text-slate-600">{feature.description}</p>
-                  </div>
+                <div className="flex flex-col justify-center">
+                  <h3 className="text-xs font-semibold leading-snug text-slate-800 sm:text-sm md:text-base">
+                    {feature.title}
+                  </h3>
+                  <p className="text-[11px] font-normal leading-tight text-slate-500 sm:text-xs">
+                    {feature.description}
+                  </p>
                 </div>
-              );
-            })}
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

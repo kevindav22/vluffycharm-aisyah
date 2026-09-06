@@ -1,8 +1,11 @@
-
 import { useEffect, useState } from "react";
 
-export function useBaseCharmSize() {
-  const [size, setSize] = useState({ height: 48, width: 58 });
+type Size = { height: number; width: number };
+
+// Mengembalikan null saat SSR/hydration awal untuk mencegah flash ukuran
+// yang salah (besar dulu lalu mengecil). Ukuran baru terisi setelah mount.
+export function useBaseCharmSize(): Size | null {
+  const [size, setSize] = useState<Size | null>(null);
 
   useEffect(() => {
     const update = () => {

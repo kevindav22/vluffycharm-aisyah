@@ -56,40 +56,4 @@ export const handleScrollToTop = (
   }
 };
 
-//generate CharmData
-import { charmData } from "@/data/charm";
-import type { Charm } from "@/types/globalTypes";
-export const generateCharms = (): Charm[] => {
-  let globalId = 1;
-
-  return Object.entries(charmData).flatMap(([categoryKey, group]) => {
-    return group.images.map((fileName) => {
-      const extractedName = fileName.replace(/\.[^/.]+$/, "");
-      const fullImagePath = `${group.basePath}${fileName}`;
-
-      const currentId = globalId;
-      globalId++;
-
-      return {
-        id: currentId,
-        name: extractedName,
-        image: fullImagePath,
-        price: group.price,
-        category: categoryKey as
-          | "solid-color"
-          | "lumi-pink"
-          | "lumi-blue"
-          | "lumi-red"
-          | "lumi-calm"
-          | "lumi-zodiac"
-          | "lumi-3d"
-          | "luxor-3d"
-          | "luxor-hanging-3d"
-          | "hero"
-          | "harry-potter"
-          | "otomotif"
-          | "polka",
-      };
-    });
-  });
-};
+//=================================================

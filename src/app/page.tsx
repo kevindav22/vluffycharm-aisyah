@@ -1,21 +1,23 @@
-import BuildBraceletSection from "@/components/landing/StepCustom";
-import CustomDesignSection from "@/components/landing/CustomDesain";
-import FeaturedProducts from "@/components/landing/FeaturedProducts";
+import StepSection from "@/components/landing/step/stepSection";
 import Hero from "@/components/landing/hero/Hero";
-import WhyChooseUsSection from "@/components/landing/Keunggulan";
 import TestimonialSection from "@/components/landing/Testimonials";
 import CTASection from "@/components/landing/Cta";
+import FastMenuSection from "@/components/landing/fastMenuSection";
+import WhyChooseUsSection from "@/components/landing/Keunggulan";
+import Bestsellers from "@/components/landing/Bestsellers";
+import FAQSection from "@/components/landing/Faq";
 
-export default function Home() { 
+export default function Home() {
   return (
-    <>
+    <main className="bg-white">
       <Hero />
       <WhyChooseUsSection />
-      <FeaturedProducts />
-      <CustomDesignSection />
-      <BuildBraceletSection />
-      <TestimonialSection />
+      <FastMenuSection />
+      <Bestsellers />
+      <StepSection category="all" />
       <CTASection />
-    </>
+      <FAQSection />
+      <TestimonialSection />
+    </main>
   );
 }

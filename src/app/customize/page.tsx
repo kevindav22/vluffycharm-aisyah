@@ -1,15 +1,7 @@
-import CustomizeBuilder from '@/components/costumize/CustomizeBuilder';
-import CTASection from '@/components/landing/Cta';
-import StepCustomSection from '@/components/landing/StepCustom';
+import { redirect } from "next/navigation";
 
 const CustomizePage = () => {
-  return (
-    <section className="bg-white pt-18">
-      <CustomizeBuilder />
-      <StepCustomSection />
-      <CTASection />
-    </section>
-  );
+  redirect("/custom-charm");
 };
 
 export default CustomizePage;

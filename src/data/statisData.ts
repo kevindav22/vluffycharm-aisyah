@@ -15,6 +15,13 @@ export const profilData: TypesProfile = {
   name: 'Vluffy',
   tagline: 'Handmade Accessories',
   phone: '6285786518023',
+  email: 'vluffy.accessories@gmail.com',
+  address: 'Solo, Jawa Tengah, Indonesia',
   pesanUmum: 'Halo kak, saya ingin bertanya tanya terkait pembelian produk apakah bisa?, saya sangat tertarik dengan produk yang dimiliki Vluffy Accessories',
+  socialMedia: {
+    instagram: 'https://instagram.com/vluffy',
+    tiktok: 'https://tiktok.com/@vluffy',
+    shopee: 'https://shopee.co.id/vluffy',
+  },
 };
 
