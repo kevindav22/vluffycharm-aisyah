@@ -16,7 +16,7 @@ const fastMenuItems = [
     description: "Kustomisasi jam tangan versi terbaikmu",
     href: "/custom-watch",
     icon: BsWatch,
-    actionText: "Kustomisasi",
+    actionText: "Mulai Desain",
   },
   {
     title: "Bundling Set",

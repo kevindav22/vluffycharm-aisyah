@@ -50,7 +50,6 @@ const DesignCanvas = ({
   const baseSize = useBaseCharmSize();
   const watchSize = useBaseWatchSize();
 
-  // Ukuran belum siap saat SSR/mount pertama -> tampilkan skeleton (hindari flash).
   const ready = baseSize !== null && (mode !== "watch" || watchSize !== null);
 
   const selectedItem =

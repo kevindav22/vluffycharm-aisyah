@@ -90,7 +90,7 @@ const TestimonialSection = () => {
         <div className="mt-8 grid grid-cols-2 gap-4 rounded-xl border border-rose-100 bg-gradient-to-r from-rose-50 via-white to-fuchsia-50 p-6 md:grid-cols-4">
           {stats.map((item) => (
             <div key={item.label} className="text-center">
-              <div className="mb-1 text-2xl font-black text-rose-500 md:text-3xl">
+              <div className="mb-1 text-2xl font-black text-rose-900 md:text-3xl">
                 <CountUp end={item.value} duration={2.5} decimals={item.decimals || 0} enableScrollSpy scrollSpyOnce />
                 {item.suffix}
               </div>

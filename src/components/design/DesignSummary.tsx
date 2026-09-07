@@ -118,7 +118,7 @@ function DesignSummary<T extends PickerItem>({
           </div>
 
           {isBundling && items.length > 0 && (
-            <div className="flex flex-col gap-0.5 text-xs text-slate-500">
+            <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-slate-500">
               {items.map((item) => (
                 <span key={item.id}>• {item.name}</span>
               ))}

@@ -95,7 +95,7 @@ const DesignBuilder = ({ mode }: Props) => {
 
   return (
     <section className="bg-gradient-to-b from-white to-rose-50 via-rose-100">
-      <div className="container mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 md:px-8 lg:px-12">
+      <div className="container mx-auto flex max-w-7xl flex-col gap-5 px-5 py-20 lg:py-22 md:px-8 lg:px-12">
         <DesignCanvas
           mode={mode}
           baseImage={mode === "watch" ? watch.image : null}

@@ -13,9 +13,10 @@ export const carouselImg: TypesCaraousel = {
 
 export const profilData: TypesProfile = {
   name: 'Vluffy',
+  logo: '/logo/logovluffy.webp',
   tagline: 'Handmade Accessories',
   phone: '6285786518023',
-  email: 'vluffy.accessories@gmail.com',
+  email: 'vluffyje@gmail.com',
   address: 'Solo, Jawa Tengah, Indonesia',
   pesanUmum: 'Halo kak, saya ingin bertanya tanya terkait pembelian produk apakah bisa?, saya sangat tertarik dengan produk yang dimiliki Vluffy Accessories',
   socialMedia: {

@@ -47,34 +47,57 @@ function DesignPicker<T extends PickerItem>({
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const currentLabel =
-    categories.find((c) => c.value === category)?.label || category;
+   const currentLabel =
+     categories.find((c) => c.value === category)?.label || category;
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+   useEffect(() => {
+     const handleClickOutside = (e: MouseEvent) => {
+       if (
+         dropdownRef.current &&
+         !dropdownRef.current.contains(e.target as Node)
+       ) {
+         setIsOpen(false);
+       }
+     };
+     document.addEventListener("mousedown", handleClickOutside);
+     return () => document.removeEventListener("mousedown", handleClickOutside);
+   }, []);
 
-  const filtered = useMemo(() => {
-    return items.filter((item) => {
-      const matchesCategory = getCategory(item) === category;
-      const searchLower = search.toLowerCase();
-      const matchesSearch =
-        item.name.toLowerCase().includes(searchLower) ||
-        item.price.toString().includes(searchLower) ||
-        formatRupiah(item.price).toLowerCase().includes(searchLower);
+   // sol-basic item statis - muncul di awal setiap kategori
+   const solBasicItem = {
+     id: 0,
+     name: "sol-basic",
+     image: "/custom/charm/basic.webp",
+     price: 5000,
+   } as T;
 
-      return matchesCategory && matchesSearch;
-    });
-  }, [items, category, search, getCategory]);
+   const filtered = useMemo(() => {
+     const searchLower = search.toLowerCase();
+
+     // Filter items berdasarkan kategori dan search
+     const categoryItems = items.filter((item) => {
+       const matchesCategory = getCategory(item) === category;
+       const matchesSearch =
+         item.name.toLowerCase().includes(searchLower) ||
+         item.price.toString().includes(searchLower) ||
+         formatRupiah(item.price).toLowerCase().includes(searchLower);
+
+       return matchesCategory && matchesSearch;
+     });
+
+     // Check jika sol-basic match search
+     const solBasicMatches =
+       solBasicItem.name.toLowerCase().includes(searchLower) ||
+       solBasicItem.price.toString().includes(searchLower) ||
+       formatRupiah(solBasicItem.price).toLowerCase().includes(searchLower);
+
+     // Inject sol-basic di awal jika match search atau tidak ada search
+     if (!search || solBasicMatches) {
+       return [solBasicItem, ...categoryItems];
+     }
+
+     return categoryItems;
+   }, [items, category, search, getCategory]);
 
   return (
     <div className="rounded-2xl border border-rose-100 bg-white shadow-sm">
@@ -136,7 +159,7 @@ function DesignPicker<T extends PickerItem>({
         </div>
       </div>
 
-      <div className="max-h-[140px] overflow-y-auto rounded-b-2xl p-2 md:max-h-[180px]">
+      <div className="max-h-[340px] overflow-y-auto rounded-b-2xl p-2 md:max-h-[380px]">
         {filtered.length > 0 ? (
           <div className="grid grid-cols-6 gap-0.5 md:grid-cols-10 lg:grid-cols-12">
             {filtered.map((item) => {
@@ -185,9 +208,11 @@ function DesignPicker<T extends PickerItem>({
                   <p className="line-clamp-1 text-[10px] leading-tight text-slate-800 sm:text-xs">
                     {item.name}
                   </p>
-                  <p className="mt-0.5 text-[10px] leading-none text-rose-500 sm:text-xs">
-                    {formatRupiah(item.price)}
-                  </p>
+                  {mode !== "bundling" && (
+                    <p className="mt-0.5 text-[10px] leading-none text-rose-500 sm:text-xs">
+                      {formatRupiah(item.price)}
+                    </p>
+                  )}
                 </div>
               </button>
               );

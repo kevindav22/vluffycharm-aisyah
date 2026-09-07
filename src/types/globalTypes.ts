@@ -6,6 +6,7 @@ export type TypesCaraousel = {
 //types profilData
 export type TypesProfile = {
   name: string;
+  logo: string;
   tagline: string;
   phone: string;
   email: string;

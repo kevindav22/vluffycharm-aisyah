@@ -51,7 +51,7 @@ export const bundlingPackages: BundlingPackage[] = [
         quota: 3,
       },
       {
-        label: "Pilih 2 Charm 3D",
+        label: "2 Charm 3D",
         allowedCategories: ["lumi-3d", "luxor-3d", "luxor-hanging-3d"],
         quota: 2,
       },

@@ -27,12 +27,12 @@ const Footer = () => {
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-3">
               <SafeImage
-                src="/logo/logovluffy.webp"
+                src={profilData.logo}
                 alt={profilData.name || "Logo"}
                 width={0}
                 height={0}
                 sizes="100vw"
-                className="h-10 w-auto object-contain"
+                className="h-15 w-auto object-contain"
                 preload
               />
             </Link>
@@ -71,23 +71,23 @@ const Footer = () => {
                   href={formatWhatsAppLink(profilData.phone, profilData.pesanUmum)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-2.5 text-sm text-slate-600 transition hover:text-rose-500"
+                  className="flex items-start gap-2.5 text-sm text-slate-600 transition hover:text-rose-900"
                 >
-                  <FaWhatsapp className="mt-0.5 shrink-0 text-rose-500" />
+                  <FaWhatsapp className="mt-0.5 shrink-0 text-rose-900" />
                   <span>{profilData.phone}</span>
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${profilData.email}`}
-                  className="flex items-start gap-2.5 text-sm text-slate-600 transition hover:text-rose-500"
+                  className="flex items-start gap-2.5 text-sm text-slate-600 transition hover:text-rose-900"
                 >
-                  <FaEnvelope className="mt-0.5 shrink-0 text-rose-500" />
+                  <FaEnvelope className="mt-0.5 shrink-0 text-rose-900" />
                   <span>{profilData.email}</span>
                 </a>
               </li>
               <li className="flex items-start gap-2.5 text-sm text-slate-600">
-                <FaLocationDot className="mt-0.5 shrink-0 text-rose-500" />
+                <FaLocationDot className="mt-0.5 shrink-0 text-rose-900" />
                 <span>{profilData.address}</span>
               </li>
             </ul>

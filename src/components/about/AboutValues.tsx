@@ -25,16 +25,9 @@ const values = [
 
 const AboutValues = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-rose-50">
+    <section className="bg-gradient-to-b from-rose-50 to-white">
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 lg:px-12">
-        <div className="mb-12 flex flex-col items-center gap-4 text-center">
-          <h2 className="text-3xl font-black text-slate-900 md:text-4xl">
-            Nilai-Nilai Kami
-          </h2>
-          <p className="max-w-2xl text-lg text-slate-600">
-            Prinsip yang menjadi fondasi setiap keputusan dan karya kami
-          </p>
-        </div>
+        
         <div className="grid gap-6 md:grid-cols-2">
           {values.map((value, index) => (
             <div

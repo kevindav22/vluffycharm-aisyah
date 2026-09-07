@@ -4,7 +4,7 @@ import StepSection from "@/components/landing/step/stepSection";
 
 const CustomWatchPage = () => {
   return (
-    <section className="bg-white pt-18">
+    <section className="bg-white">
       <DesignBuilder mode="watch" />
       <StepSection category="customWatch" />
       <CTASection />

@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import SafeImage from "@/components/ui/SafeImage";
 
 const AboutIntro = () => {
   return (
-    <section className="bg-white pt-20">
+    <section className="bg-white pt-16">
       <div className="mx-auto max-w-7xl px-5 py-12 md:px-8 lg:px-12">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative h-64 overflow-hidden rounded-3xl border border-rose-100 bg-rose-50 md:h-80 lg:h-96">
