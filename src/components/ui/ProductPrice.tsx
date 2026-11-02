@@ -15,7 +15,7 @@ const ProductPrice = ({ price, originalPrice, className, priceClassName }: Props
   return (
     <div className={cn("flex flex-col", className)}>
       {hasDiscount && (
-        <span className="text-xs font-medium text-slate-400 line-through">
+        <span className="text-xs font-medium text-slate-500 line-through">
           {formatRupiah(originalPrice!)}
         </span>
       )}

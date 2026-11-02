@@ -49,7 +49,7 @@ const CollectionSection = () => {
           {collections.map((item) => (
             <Link key={item.title} href={item.href} className="group overflow-hidden rounded-[2rem] border border-rose-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="relative aspect-[4/5] overflow-hidden">
-                <SafeImage src={item.image} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                <SafeImage src={item.image} alt={item.title} quality={65} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition duration-700 group-hover:scale-105" />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
               </div>

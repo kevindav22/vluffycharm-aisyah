@@ -224,7 +224,7 @@ function CustomPicker<T extends PickerItem>({
                     <span className="mt-0.5 inline-flex items-baseline gap-1 leading-none">
                       {typeof item.originalPrice === "number" &&
                         item.originalPrice > item.price && (
-                          <span className="text-[10px] text-slate-400 line-through sm:text-xs">
+                          <span className="text-[10px] text-slate-500 line-through sm:text-xs">
                             {formatRupiah(item.originalPrice)}
                           </span>
                         )}

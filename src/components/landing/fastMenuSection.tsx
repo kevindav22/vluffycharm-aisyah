@@ -25,6 +25,8 @@ const fastMenuItems = [
 const FastMenuSection = () => {
   return (
     <section className="bg-gradient-to-b from-white via-rose-50/40 to-white px-5 py-8 md:px-8 md:py-14 lg:px-12">
+      {/* Heading tersembunyi: menjaga urutan h1 -> h2 -> h3 untuk screen reader. */}
+      <h2 className="sr-only">Layanan Vluffy Accessories</h2>
       <div className="container mx-auto max-w-6xl">
         <div className="grid gap-4 md:grid-cols-3 md:gap-5">
           {fastMenuItems.map(({ title, description, href, actionText }, index) => (
@@ -38,7 +40,7 @@ const FastMenuSection = () => {
                 className="pointer-events-none absolute -right-12 -top-12 size-32 rounded-full bg-gradient-to-br from-rose-100 to-pink-50 blur-2xl transition-opacity duration-500 group-hover:opacity-100 md:opacity-0"
               />
 
-              <span className="relative text-[11px] font-black tracking-[0.25em] text-rose-300 transition-colors duration-500 group-hover:text-rose-700">
+              <span className="relative text-[11px] font-black tracking-[0.25em] text-rose-700 transition-colors duration-500 group-hover:text-rose-900">
                 {String(index + 1).padStart(2, "0")}
               </span>
 

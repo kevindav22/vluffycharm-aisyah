@@ -3,6 +3,7 @@
 import Image, { ImageProps } from 'next/image';
 import { useEffect, useState } from 'react';
 import { FaImages } from 'react-icons/fa';
+import { profilData } from '@/data/statisData';
 
 type SafeImageProps = ImageProps & {
   useNativeImg?: boolean;
@@ -12,20 +13,36 @@ type SafeImageProps = ImageProps & {
 
 const SafeImage = ({ useNativeImg = false, fallbackIcon, fallbackClassName, className, src, alt, ...props }: SafeImageProps) => {
   const [hasError, setHasError] = useState(false);
+  // Alt default memakai nama brand, bukan teks template lama.
+  const resolvedAlt = alt || profilData.name || 'Foto produk';
+  // Native img tidak butuh dimensi; cegah atribut next/image bocor ke DOM.
+  const { fill, priority, quality, sizes, placeholder, blurDataURL, loader, ...imgProps } = props;
 
   useEffect(() => {
     setHasError(false);
   }, [src]);
 
   if (hasError || !src) {
-    return <div className="flex h-full w-full items-center justify-center">{fallbackIcon || <FaImages className={fallbackClassName || 'text-5xl text-slate-300'} />}</div>;
+    return (
+      <div className="flex h-full w-full items-center justify-center" aria-hidden="true">
+        {fallbackIcon || <FaImages className={fallbackClassName || 'text-5xl text-slate-300'} />}
+      </div>
+    );
   }
 
   if (useNativeImg) {
-    return <img src={typeof src === 'string' ? src : ''} alt={alt || 'Image'} draggable={false} className={className} onError={() => setHasError(true)} />;
+    return (
+      <img
+        src={typeof src === 'string' ? src : ''}
+        alt={resolvedAlt}
+        draggable={false}
+        className={className}
+        onError={() => setHasError(true)}
+      />
+    );
   }
 
-  return <Image {...props} src={src} alt={alt || 'Rental Mobil Solo Kawula Transport'} className={className} onError={() => setHasError(true)} />;
+  return <Image {...props} src={src} alt={resolvedAlt} className={className} onError={() => setHasError(true)} />;
 };
 
 export default SafeImage;

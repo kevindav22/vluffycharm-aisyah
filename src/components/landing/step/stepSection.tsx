@@ -139,7 +139,7 @@ function StepCard({
         <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-rose-200 via-pink-200 to-[#edd5ec] text-sm shadow-sm shadow-rose-200/50">
           <Icon />
         </div>
-        <span className="text-3xl font-black leading-none text-rose-200">
+        <span className="text-3xl font-black leading-none text-rose-400">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>

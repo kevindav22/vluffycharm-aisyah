@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import SafeImage from "@/components/ui/SafeImage";
+import { profilData } from "@/data/statisData";
 import { TypesCaraousel } from "@/types/globalTypes";
 
 const HeroCarousel = ({ images }: { images: TypesCaraousel["img"] }) => {
@@ -40,10 +41,13 @@ const HeroCarousel = ({ images }: { images: TypesCaraousel["img"] }) => {
               <SafeImage
                 src={src}
                 fill
+                // Hanya slide pertama yang perlu diprioritaskan (LCP).
+                // Sisanya lazy; slide non-aktif tidak menahan render awal.
                 priority={index === 0}
-                quality={75}
+                loading={index === 0 ? "eager" : "lazy"}
+                quality={index === 0 ? 75 : 60}
                 sizes="100vw"
-                alt="Produk Charmify"
+                alt={`Koleksi ${profilData.name} - tampilan ${index + 1}`}
                 className="object-cover"
               />
             </div>
@@ -58,19 +62,25 @@ const HeroCarousel = ({ images }: { images: TypesCaraousel["img"] }) => {
           Create Something That Tells Your Story
         </h1>
 
-        <div className="pointer-events-auto z-10 flex items-center gap-1.5 pb-12 md:pb-4">
+        <div className="pointer-events-auto z-10 flex items-center gap-1 pb-12 md:pb-4">
           {images.map((_, index) => (
             <button
               key={index}
               type="button"
               aria-label={`Tampilkan slide ${index + 1}`}
+              aria-current={selectedIndex === index ? "true" : undefined}
               onClick={() => scrollTo(index)}
-              className={`rounded-full transition-all duration-300 ${
-                selectedIndex === index
-                  ? "h-1.5 w-6 bg-white"
-                  : "size-1.5 bg-white/50"
-              }`}
-            />
+              className="group flex size-6 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-white"
+            >
+              {/* Ukuran dot tetap; hanya transform/opacity yang dianimasikan agar composited. */}
+              <span
+                className={`block h-1.5 rounded-full bg-white transition-[transform,opacity] duration-300 ${
+                  selectedIndex === index
+                    ? "w-6 opacity-100"
+                    : "w-1.5 opacity-50 group-hover:opacity-80"
+                }`}
+              />
+            </button>
           ))}
         </div>
       </div>

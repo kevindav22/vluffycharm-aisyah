@@ -100,7 +100,7 @@ const Header = () => {
                 alt={profilData?.name || "Logo"}
                 width={0}
                 height={0}
-                sizes="100vw"
+                sizes="160px"
                 className="h-8 w-auto object-contain md:h-10"
                 preload
               />

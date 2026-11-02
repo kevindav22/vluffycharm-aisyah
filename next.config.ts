@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     qualities: [50, 55, 60, 65, 70, 75],
+    // Kualitas default diturunkan dari 75 -> 65 (gambar list/kartu).
+    // Gambar hero tetap bisa override dengan quality={75}.
+    minimumCacheTTL: 2592000,
   },
 };
 

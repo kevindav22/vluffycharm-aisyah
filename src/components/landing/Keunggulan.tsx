@@ -27,6 +27,8 @@ const features = [
 const WhyChooseUsSection = () => {
   return (
     <section className="relative z-30 mx-auto -mt-16 max-w-7xl px-4 md:-mt-12 px-5 md:px-8 lg:px-12">
+      {/* Heading tersembunyi: menjaga urutan h1 -> h2 -> h3 untuk screen reader. */}
+      <h2 className="sr-only">Keunggulan Vluffy Accessories</h2>
       <div className="rounded-xl bg-white p-4 shadow-md md:rounded-2xl md:p-7">
         <div className="grid grid-cols-2 gap-x-2 gap-y-4 md:grid-cols-4 md:gap-0 md:divide-x md:divide-rose-900">
           {features.map((feature) => {

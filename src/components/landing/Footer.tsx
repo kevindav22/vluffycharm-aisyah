@@ -33,7 +33,7 @@ const Footer = () => {
                 alt={profilData.name || "Logo"}
                 width={0}
                 height={0}
-                sizes="100vw"
+                sizes="140px"
                 className="h-15 w-auto object-contain"
                 preload
               />
@@ -102,7 +102,7 @@ const Footer = () => {
                   aria-label={social.label}
                   className="flex size-10 items-center justify-center rounded-full border border-rose-200 bg-white text-slate-500 transition hover:border-rose-300 hover:text-rose-700"
                 >
-                  <social.icon className="text-lg" />
+                  <social.icon className="text-lg" aria-hidden="true" />
                 </a>
               ))}
             </div>

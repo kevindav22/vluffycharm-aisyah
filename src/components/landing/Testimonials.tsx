@@ -75,7 +75,7 @@ const TestimonialSection = () => {
                   </div>
                   <p className="mb-3 flex-1 leading-relaxed text-slate-600">&quot;{item.review}&quot;</p>
                   <div className="flex items-center gap-3 border-t border-rose-100 pt-4">
-                    <FaUserCircle className="text-5xl text-rose-300" />
+                    <FaUserCircle className="text-5xl text-rose-400" />
                     <div>
                       <h3 className="font-bold text-slate-900">{item.name}</h3>
                       <p className="text-sm text-slate-500">{item.city}</p>
