@@ -42,7 +42,7 @@ const BundlingHero = ({ product, description }: Props) => {
         <div className="grid grid-cols-2 gap-3 pt-2">
           {benefits.map((benefit, index) => (
             <div key={index} className="flex items-center gap-2">
-              <benefit.icon className="shrink-0 text-rose-500" />
+              <benefit.icon className="shrink-0 text-rose-900" />
               <span className="text-xs text-slate-600">{benefit.text}</span>
             </div>
           ))}

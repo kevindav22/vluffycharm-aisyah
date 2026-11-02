@@ -31,7 +31,7 @@ export type TypesProfile = {
 };
 
 // types for design mode (ditentukan oleh URL, bukan button)
-export type DesignMode = "charm" | "watch";
+export type CustomMode = "charm" | "watch";
 
 // types for charm custom
 export type CharmCategory =
@@ -43,7 +43,7 @@ export type CharmCategory =
   | "lumi-zodiac"
   | "lumi-3d"
   | "luxor-3d"
-  | "luxor-hanging-3d"
+  | "luxor-hanging"
   | "lumi-kpop"
   | "lumi-hero"
   | "lumi-harry-potter"
@@ -54,6 +54,8 @@ export type CharmCustom = {
   id: number;
   name: string;
   price: number;
+  // Harga sebelum diskon. Kosongkan (undefined/null) jika tidak ada diskon.
+  originalPrice?: number | null;
   image: string;
   charmCategory: CharmCategory;
 };
@@ -71,6 +73,8 @@ export type WatchCustom = {
   id: number;
   name: string;
   price: number;
+  // Harga sebelum diskon. Kosongkan (undefined/null) jika tidak ada diskon.
+  originalPrice?: number | null;
   image: string;
   watchCategory: WatchCategory;
 };
@@ -103,7 +107,9 @@ export type StepCategoryGroup = {
 //=========================================
 
 // Kategori produk jadi yang dijual di collections.
-export type ProductCategory = "charm" | "watch" | "bundling";
+// `bracelet` = gelang charm siap pakai (bukan Custom Charm /custom-charm).
+// `watch-ready` = jam tangan siap pakai (bukan Custom Watch /custom-watch).
+export type ProductCategory = "bracelet" | "watch-ready" | "bundling";
 
 export type Product = {
   id: number;

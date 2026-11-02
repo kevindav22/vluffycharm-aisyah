@@ -8,8 +8,8 @@ import { profilData } from "@/data/statisData";
 import type { Product } from "@/types/globalTypes";
 
 const categoryLabel: Record<Product["category"], string> = {
-  charm: "Charm",
-  watch: "Watch",
+  bracelet: "Bracelet",
+  "watch-ready": "Watch Ready",
   bundling: "Bundling",
 };
 
@@ -25,7 +25,7 @@ const ProductCard = ({ product }: Props) => {
   const bundlingSlug = isBundling ? slugify(product.name) : undefined;
   const bundlingHref = bundlingSlug ? `/bundling/${bundlingSlug}` : undefined;
 
-  // Produk jadi (charm/watch): tombol "Pesan Sekarang" -> langsung WA.
+  // Produk jadi (bracelet/watch-ready): tombol "Pesan Sekarang" -> langsung WA.
   const waMessage = `Halo, saya mau pesan produk berikut:
 
 Nama Produk: ${product.name}
@@ -45,7 +45,7 @@ Mohon info selanjutnya untuk proses pemesanan. Terima kasih.`;
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           className="object-cover"
         />
-        <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-rose-500 shadow-sm">
+        <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold text-rose-900 shadow-sm">
           {categoryLabel[product.category]}
         </span>
       </div>

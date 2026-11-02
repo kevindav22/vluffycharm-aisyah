@@ -1,5 +1,4 @@
-import { FiArrowRight, FiPenTool, FiShoppingBag } from "react-icons/fi";
-import { BsStars, BsWatch } from "react-icons/bs";
+import { FiArrowRight } from "react-icons/fi";
 import { Button } from "@/components/ui/Button";
 
 const CTASection = () => {
@@ -15,19 +14,15 @@ const CTASection = () => {
           </p>
 
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <Button href="/collections" variant="primary" className="group w-full sm:w-auto">
-              <FiShoppingBag />
-              <span>Our Collections</span>
-              <FiArrowRight className="transition-transform group-hover:translate-x-1" />
-            </Button>
-
             <Button href="/custom-charm" variant="secondary" className="w-full sm:w-auto">
-              <BsStars />
               <span>Desain Charm</span>
             </Button>
             <Button href="/custom-watch" variant="secondary" className="w-full sm:w-auto">
-              <BsWatch />
               <span>Desain Watch</span>
+            </Button>
+             <Button href="/collections" variant="primary" className="group w-full sm:w-auto">
+              <span>Our Collections</span>
+              <FiArrowRight className="transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
         </div>

@@ -21,11 +21,11 @@ const navItems: NavItem[] = [
   { label: "Beranda", href: "/" },
   { label: "Collections", href: "/collections" },
   {
-    label: "Builder",
+    label: "Get Start",
     href: "/custom-charm",
     children: [
-      { label: "Build Charm", href: "/custom-charm" },
-      { label: "Build Watch", href: "/custom-watch" },
+      { label: "Custom Charm", href: "/custom-charm" },
+      { label: "Custom Watch", href: "/custom-watch" },
     ],
   },
   { label: "Tentang Kami", href: "/about" },
@@ -130,7 +130,7 @@ const Header = () => {
                         className={`group relative flex items-center gap-1 font-bold transition-colors duration-300 ${
                           isActive
                             ? "text-rose-900/80 mix-blend-multiply "
-                            : "text-slate-600 hover:text-rose-500"
+                            : "text-slate-600 hover:text-rose-700"
                         }`}
                       >
                         {item.label}
@@ -140,7 +140,7 @@ const Header = () => {
                           }`}
                         />
                         <span
-                          className={`absolute -bottom-0.5 left-0 h-0.5 bg-rose-500 transition-all duration-300 ${
+                          className={`absolute -bottom-0.5 left-0 h-0.5 bg-rose-900 transition-all duration-300 ${
                             isActive ? "w-full" : "w-0 group-hover:w-full"
                           }`}
                         />
@@ -165,7 +165,7 @@ const Header = () => {
                               className={`rounded-lg px-3 py-2 text-sm font-semibold transition-colors duration-200 ${
                                 pathname === child.href
                                   ? "bg-rose-50 text-rose-900"
-                                  : "text-slate-600 hover:bg-rose-50 hover:text-rose-500"
+                                  : "text-slate-600 hover:bg-rose-50 hover:text-rose-700"
                               }`}
                             >
                               {child.label}
@@ -185,12 +185,12 @@ const Header = () => {
                     className={`group relative font-bold transition-colors duration-300 ${
                       isActive
                         ? "text-rose-900/80 mix-blend-multiply "
-                        : "text-slate-600 hover:text-rose-500"
+                        : "text-slate-600 hover:text-rose-700"
                     }`}
                   >
                     {item.label}
                     <span
-                      className={`absolute -bottom-0.5 left-0 h-0.5 bg-rose-500 transition-all duration-300 ${
+                      className={`absolute -bottom-0.5 left-0 h-0.5 bg-rose-900 transition-all duration-300 ${
                         isActive ? "w-full" : "w-0 group-hover:w-full"
                       }`}
                     />
@@ -239,7 +239,7 @@ const Header = () => {
                             setOpenMobile(isOpen ? null : item.label)
                           }
                           aria-expanded={isOpen}
-                          className="flex w-full items-center justify-between font-medium text-slate-700 transition hover:text-rose-500"
+                          className="flex w-full items-center justify-between font-medium text-slate-700 transition hover:text-rose-700"
                         >
                           {item.label}
                           <HiChevronDown
@@ -262,7 +262,7 @@ const Header = () => {
                                   setMobileOpen(false),
                                 )
                               }
-                              className={`border-l border-rose-200 pl-3 text-sm transition hover:text-rose-500 ${
+                              className={`border-l border-rose-200 pl-3 text-sm transition hover:text-rose-700 ${
                                 pathname === child.href
                                   ? "font-semibold text-rose-900/80"
                                   : "text-slate-600"
@@ -285,7 +285,7 @@ const Header = () => {
                           setMobileOpen(false),
                         )
                       }
-                      className="font-medium text-slate-700 transition hover:text-rose-500"
+                      className="font-medium text-slate-700 transition hover:text-rose-700"
                     >
                       {item.label}
                     </Link>

@@ -10,9 +10,9 @@ export const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export type TrackedEvent =
   | { event: "wa_click"; placement: string; product_name?: string; value?: number }
-  | { event: "design_start"; builder: "charm" | "watch" }
-  | { event: "design_export"; builder: "charm" | "watch"; charm_count: number }
-  | { event: "design_order"; builder: "charm" | "watch"; charm_count: number; value: number }
+  | { event: "custom_start"; mode: "charm" | "watch" }
+  | { event: "custom_export"; mode: "charm" | "watch"; charm_count: number }
+  | { event: "custom_order"; mode: "charm" | "watch"; charm_count: number; value: number }
   | { event: "bundling_order"; product_name: string; value: number };
 
 declare global {

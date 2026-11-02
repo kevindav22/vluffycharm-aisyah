@@ -34,7 +34,7 @@ const AboutValues = () => {
               key={index}
               className="flex gap-4 rounded-2xl border border-rose-100 bg-white p-6 shadow-sm transition hover:-translate-y-1"
             >
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-500">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-900">
                 <FiCheck className="text-xl" />
               </div>
               <div className="flex flex-col gap-2">

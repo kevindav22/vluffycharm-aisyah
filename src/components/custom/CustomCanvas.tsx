@@ -2,17 +2,17 @@
 
 import { useEffect, useRef, useState } from "react";
 import Moveable from "react-moveable";
-import DesignToolbar from "./DesignToolbar";
-import DesignItem from "./DesignItem";
-import useDesignExport from "@/hooks/useDesignExport";
+import CustomToolbar from "./CustomToolbar";
+import CustomItem from "./CustomItem";
+import useCustomExport from "@/hooks/useCustomExport";
 import SafeImage from "@/components/ui/SafeImage";
 import { useBaseCharmSize } from "@/hooks/useBaseCharmSize";
-import type { DesignMode, SelectedCharm } from "@/types/globalTypes";
-import { useBaseWatchSize } from "@/hooks/useBaseWatch";
+import type { CustomMode, SelectedCharm } from "@/types/globalTypes";
+import { useBaseWatchSize } from "@/hooks/useBaseWatchSize";
 import { track } from "@/lib/analytics";
 
 type Props = {
-  mode: DesignMode;
+  mode: CustomMode;
   baseImage?: string | null;
   items: SelectedCharm[];
   zoom: number;
@@ -29,7 +29,7 @@ type Props = {
   onResetZoom: () => void;
 };
 
-const DesignCanvas = ({
+const CustomCanvas = ({
   mode,
   baseImage,
   items,
@@ -42,10 +42,10 @@ const DesignCanvas = ({
   onResetZoom,
 }: Props) => {
   const canvasRef = useRef<HTMLDivElement>(null);
-  const { handleDownload } = useDesignExport(canvasRef);
+  const { handleDownload } = useCustomExport(canvasRef);
 
   const onDownload = () => {
-    track({ event: "design_export", builder: mode, charm_count: items.length });
+    track({ event: "custom_export", mode, charm_count: items.length });
     void handleDownload();
   };
 
@@ -88,7 +88,7 @@ const DesignCanvas = ({
 
   return (
     <div className="overflow-hidden rounded-xl border border-rose-100 bg-white">
-      <DesignToolbar
+      <CustomToolbar
         zoom={zoom}
         hasSelected={!!selectedId}
         onZoomIn={onZoomIn}
@@ -100,7 +100,7 @@ const DesignCanvas = ({
       />
 
       <div ref={canvasRef} className="p-1 md:p-1 lg:p-2">
-        <div className="relative flex aspect-[4/3] flex-col overflow-hidden rounded-2xl border border-dashed border-rose-900 bg-rose-50/20 p-3 md:aspect-[4/3] md:p-4 lg:aspect-[16/7]">
+        <div className="relative flex aspect-[4/3] flex-col overflow-hidden rounded-2xl border border-dashed border-rose-300 bg-rose-50/20 p-3 md:aspect-[4/3] md:p-4 lg:aspect-[16/7]">
           {!ready ? (
             <div className="flex flex-1 items-center justify-center">
               <div className="h-2/3 w-3/4 animate-pulse rounded-2xl bg-rose-100/60 blur-sm" />
@@ -152,7 +152,7 @@ const DesignCanvas = ({
                 </div>
               ) : (
                 items.map((item) => (
-                  <DesignItem
+                  <CustomItem
                     key={item.instanceId}
                     item={item}
                     isSelected={item.instanceId === selectedId}
@@ -215,4 +215,4 @@ const DesignCanvas = ({
   );
 };
 
-export default DesignCanvas;
+export default CustomCanvas;

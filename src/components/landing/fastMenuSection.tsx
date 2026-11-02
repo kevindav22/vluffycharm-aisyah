@@ -3,13 +3,13 @@ import { FiArrowRight } from "react-icons/fi";
 
 const fastMenuItems = [
   {
-    title: "Charm Builder",
+    title: "Custom Charm",
     description: "Kreasikan idemu dengan berbagai pilihan charm menarik",
     href: "/custom-charm",
     actionText: "Mulai Desain",
   },
   {
-    title: "Watch Studio",
+    title: "Custom Watch",
     description: "Kustomisasi jam tangan versi terbaikmu",
     href: "/custom-watch",
     actionText: "Mulai Desain",
@@ -38,7 +38,7 @@ const FastMenuSection = () => {
                 className="pointer-events-none absolute -right-12 -top-12 size-32 rounded-full bg-gradient-to-br from-rose-100 to-pink-50 blur-2xl transition-opacity duration-500 group-hover:opacity-100 md:opacity-0"
               />
 
-              <span className="relative text-[11px] font-black tracking-[0.25em] text-rose-300 transition-colors duration-500 group-hover:text-rose-400">
+              <span className="relative text-[11px] font-black tracking-[0.25em] text-rose-300 transition-colors duration-500 group-hover:text-rose-700">
                 {String(index + 1).padStart(2, "0")}
               </span>
 
@@ -50,7 +50,7 @@ const FastMenuSection = () => {
                 {description}
               </p>
 
-              <span className="relative mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-rose-600 md:text-sm">
+              <span className="relative mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-rose-900 md:text-sm">
                 <span className="border-b border-transparent pb-0.5 transition-colors duration-300 group-hover:border-rose-300">
                   {actionText}
                 </span>

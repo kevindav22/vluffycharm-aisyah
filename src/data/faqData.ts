@@ -29,7 +29,7 @@ export const faqData: FaqItem[] = [
   {
     question: "Apakah bisa request desain custom?",
     answer:
-      "Tentu! Gunakan fitur Charm Builder atau Watch Studio untuk membuat desain sendiri. Tim kami akan membantu mewujudkan desainmu.",
+      "Tentu! Gunakan fitur Custom Charm atau Custom Watch untuk membuat desain sendiri. Tim kami akan membantu mewujudkan desainmu.",
   },
   {
     question: "Bagaimana cara perawatan charm bracelet?",

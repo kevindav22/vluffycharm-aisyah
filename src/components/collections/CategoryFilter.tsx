@@ -1,5 +1,6 @@
 import { FiGrid } from "react-icons/fi";
-import { BsStars, BsWatch } from "react-icons/bs";
+import { GiGemChain } from "react-icons/gi";
+import { BsWatch } from "react-icons/bs";
 import { HiOutlineGift } from "react-icons/hi2";
 import type { ProductCategory } from "@/types/globalTypes";
 import { cn } from "@/lib/utils";
@@ -8,8 +9,8 @@ type FilterKey = "all" | ProductCategory;
 
 const filters: { key: FilterKey; label: string; icon: typeof FiGrid }[] = [
   { key: "all", label: "Semua", icon: FiGrid },
-  { key: "charm", label: "Charm", icon: BsStars },
-  { key: "watch", label: "Watch", icon: BsWatch },
+  { key: "bracelet", label: "Bracelet", icon: GiGemChain },
+  { key: "watch-ready", label: "Watch Ready", icon: BsWatch },
   { key: "bundling", label: "Bundling", icon: HiOutlineGift },
 ];
 
@@ -33,7 +34,7 @@ const CategoryFilter = ({ active, onChange }: Props) => {
               className={cn(
                 "flex size-14 items-center justify-center rounded-full border-2 text-xl transition-all md:size-16",
                 isActive
-                  ? "border-rose-400 bg-rose-100 text-rose-500"
+                  ? "border-rose-900 bg-rose-100 text-rose-900"
                   : "border-slate-200 bg-white text-slate-400 hover:border-rose-200",
               )}
             >
@@ -42,7 +43,7 @@ const CategoryFilter = ({ active, onChange }: Props) => {
             <span
               className={cn(
                 "text-xs font-medium",
-                isActive ? "text-rose-500" : "text-slate-500",
+                isActive ? "text-rose-900" : "text-slate-500",
               )}
             >
               {cat.label}

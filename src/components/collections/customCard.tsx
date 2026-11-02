@@ -50,7 +50,7 @@ const CustomCard = () => {
                   </p>
                 </div>
 
-                <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/90 text-rose-500 transition group-hover:bg-rose-500 group-hover:text-white">
+                <div className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/90 text-rose-900 transition group-hover:bg-rose-900 group-hover:text-white">
                   <FiArrowRight className="text-lg transition-transform group-hover:translate-x-0.5" />
                 </div>
               </div>

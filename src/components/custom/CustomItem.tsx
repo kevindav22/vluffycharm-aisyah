@@ -15,7 +15,7 @@ type Props = {
 };
 
 // Elemen yang dirangkai di canvas (reuse SelectedCharm). Bisa digeser/diubah skala.
-const DesignItem = ({
+const CustomItem = ({
   item,
   isSelected,
   baseSize,
@@ -63,8 +63,8 @@ const DesignItem = ({
             className="pointer-events-auto flex size-7 touch-none items-center justify-center rounded-full border border-rose-300 bg-white shadow-sm active:scale-95"
           >
             <div className="flex flex-col items-center gap-0.5">
-              <span className="block h-0.5 w-3 rounded bg-rose-400" />
-              <span className="block h-0.5 w-3 rounded bg-rose-400" />
+              <span className="block h-0.5 w-3 rounded bg-rose-900" />
+              <span className="block h-0.5 w-3 rounded bg-rose-900" />
             </div>
           </div>
         </div>
@@ -73,4 +73,4 @@ const DesignItem = ({
   );
 };
 
-export default DesignItem;
+export default CustomItem;

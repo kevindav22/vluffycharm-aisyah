@@ -1,38 +1,66 @@
 import type { Product } from "@/types/globalTypes";
 
 export const productData: Product[] = [
-  //==================== CHARM ====================
+  //==================== BRACELET (siap pakai) ====================
   // `price` = harga diskon, `originalPrice` = harga awal (dicoret).
   {
     id: 1,
     name: "F1 Series",
-    image: "/products/charm/f1.webp",
+    image: "/products/bracelet/f1.webp",
     price: 55000,
     originalPrice: 80000,
-    category: "charm",
+    category: "bracelet",
     bestseller: true,
   },
   {
     id: 2,
     name: "Spider Series",
-    image: "/products/charm/spider.webp",
+    image: "/products/bracelet/spider.webp",
     price: 60000,
     originalPrice: 90000,
-    category: "charm",
+    category: "bracelet",
   },
   {
     id: 3,
     name: "Spider Couple",
-    image: "/products/charm/spider-couple.webp",
-    price: 70000,
+    image: "/products/bracelet/spider-couple.webp",
+    price: 60000,
     originalPrice: 120000,
-    category: "charm",
+    category: "bracelet",
     bestseller: true,
   },
 
-  //==================== WATCH ====================
-  // Belum ada stok/produk watch. Diisi nanti saat data real tersedia.
-  // Selama kosong, kategori watch tampil sebagai "Coming Soon".
+  //==================== WATCH READY (siap pakai) ====================
+  // DUMMY: 3 data contoh. Ganti dengan produk real saat stok tersedia.
+  // Foto dummy di-copy dari bundling (file terpisah) — ganti dengan foto asli.
+  /*
+  {
+    id: 4,
+    name: "Watch Ready Series 1",
+    image: "/products/watch-ready/watch-ready-1.webp",
+    price: 55000,
+    originalPrice: 80000,
+    category: "watch-ready",
+  },
+  {
+    id: 5,
+    name: "Watch Ready Series 2",
+    image: "/products/watch-ready/watch-ready-2.webp",
+    price: 55000,
+    originalPrice: 80000,
+    category: "watch-ready",
+  },
+  {
+    id: 6,
+    name: "Watch Ready Series 3",
+    image: "/products/watch-ready/watch-ready-3.webp",
+    price: 55000,
+    originalPrice: 80000,
+    category: "watch-ready",
+    bestseller: true,
+  },
+  */
+  
 
   //==================== BUNDLING ====================
   // idProduct ada di BundlingPackage (src/data/bundlingData.ts).

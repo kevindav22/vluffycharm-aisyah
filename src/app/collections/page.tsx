@@ -7,17 +7,17 @@ import { productData } from "@/data/productData";
 import { slugify } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Koleksi Charm Bracelet & Bundling",
+  title: "Koleksi Bracelet & Watch Ready Siap Pakai",
   description:
-    "Jelajahi koleksi charm bracelet, paket bundling hemat, dan aksesoris handmade Vluffy Accessories. Charm siap pakai atau custom sesuai ceritamu.",
+    "Jelajahi koleksi bracelet siap pakai, jam tangan watch ready, dan paket bundling hemat dari Vluffy Accessories. Produk jadi tanpa perlu merangkai, atau custom sesuai ceritamu.",
   alternates: {
     canonical: "/collections",
   },
   openGraph: {
     url: "/collections",
-    title: "Koleksi Charm Bracelet & Bundling | Vluffy",
+    title: "Koleksi Bracelet & Watch Ready | Vluffy",
     description:
-      "Jelajahi koleksi charm bracelet, paket bundling hemat, dan aksesoris handmade Vluffy Accessories.",
+      "Jelajahi koleksi bracelet siap pakai, jam tangan watch ready, dan paket bundling hemat Vluffy Accessories.",
     images: [{ url: "/img/bracelet.webp", alt: "Koleksi Vluffy Accessories" }],
   },
 };

@@ -16,7 +16,7 @@ const lumiCategories: CharmCategory[] = [
 
 const luxorCategories: CharmCategory[] = ["luxor-3d"];
 
-const hangingCategories: CharmCategory[] = ["luxor-hanging-3d"];
+const hangingCategories: CharmCategory[] = ["luxor-hanging"];
 
 // Base polos (charm solid-color) TIDAK dipilih di picker — jumlahnya sudah
 // termasuk di paket (lihat `description`). Picker hanya untuk charm bonus.

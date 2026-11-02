@@ -33,7 +33,7 @@ const AboutFeatures = () => {
               key={index}
               className="flex flex-col items-center gap-3 rounded-2xl border border-rose-100 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1"
             >
-              <div className="flex size-14 items-center justify-center rounded-full bg-rose-100 text-rose-500">
+              <div className="flex size-14 items-center justify-center rounded-full bg-rose-100 text-rose-900">
                 <feature.icon className="text-2xl" />
               </div>
               <h3 className="font-bold text-slate-900">{feature.title}</h3>

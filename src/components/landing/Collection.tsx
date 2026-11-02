@@ -25,7 +25,7 @@ const collections = [
     title: 'Charm Custom',
     description: 'Buat kombinasi charm sesuai cerita dan kepribadianmu.',
     image: '/img/3dcharm.webp',
-    href: '/customize',
+    href: '/custom-charm',
   },
 ];
 
@@ -36,7 +36,7 @@ const CollectionSection = () => {
         {/* HEADER */}
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <span className="mb-3 inline-flex rounded-full border border-rose-200 bg-white px-4 py-2 text-sm font-medium text-rose-600">Shop by Category</span>
+            <span className="mb-3 inline-flex rounded-full border border-rose-200 bg-white px-4 py-2 text-sm font-medium text-rose-900">Shop by Category</span>
 
             <h2 className="mb-4 text-2xl font-black text-slate-900 md:text-3xl lg:text-4xl">Jelajahi Koleksi Kami</h2>
 
@@ -58,7 +58,7 @@ const CollectionSection = () => {
                 <div className="mb-3 flex items-center justify-between">
                   <h3 className="text-xl font-bold text-slate-900">{item.title}</h3>
 
-                  <div className="flex size-10 items-center justify-center rounded-full bg-rose-50 text-rose-500 transition group-hover:bg-rose-500 group-hover:text-white">
+                  <div className="flex size-10 items-center justify-center rounded-full bg-rose-50 text-rose-900 transition group-hover:bg-rose-900 group-hover:text-white">
                     <FiArrowUpRight />
                   </div>
                 </div>

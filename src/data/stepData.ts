@@ -155,7 +155,7 @@ export const stepsByCategory: StepCategoryGroup[] = [
         id: 23,
         title: "Pilih Produk di Koleksi",
         description:
-          "Telusuri koleksi charm & jam siap pakai yang sudah kami siapkan.",
+          "Telusuri koleksi bracelet & watch ready siap pakai yang sudah kami siapkan.",
       },
       {
         id: 24,

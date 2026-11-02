@@ -1,16 +1,16 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import DesignCanvas from "./DesignCanvas";
-import DesignPicker from "./DesignPicker";
-import DesignSummary from "./DesignSummary";
+import CustomCanvas from "./CustomCanvas";
+import CustomPicker from "./CustomPicker";
+import CustomSummary from "./CustomSummary";
 import { charmCustom } from "@/data/charmCustom";
 import { watchCustom } from "@/data/watchCustom";
 import { track } from "@/lib/analytics";
 import type {
   CharmCustom,
   CharmCategory,
-  DesignMode,
+  CustomMode,
   SelectedCharm,
   WatchCustom,
   WatchCategory,
@@ -25,7 +25,7 @@ const charmCategories: { value: CharmCategory; label: string }[] = [
   { value: "lumi-zodiac", label: "Lumi Zodiac" },
   { value: "lumi-3d", label: "Lumi 3D" },
   { value: "luxor-3d", label: "Luxor 3D" },
-  { value: "luxor-hanging-3d", label: "Lux Hanging 3D" },
+  { value: "luxor-hanging", label: "Luxor Hanging 3D" },
   { value: "lumi-kpop", label: "Lumi Kpop" },
   { value: "lumi-hero", label: "Lumi Hero" },
   { value: "lumi-harry-potter", label: "Lumi Harry Potter" },
@@ -43,7 +43,7 @@ const watchCategories: { value: WatchCategory; label: string }[] = [
 ];
 
 type Props = {
-  mode: DesignMode;
+  mode: CustomMode;
 };
 
 const generateId = () =>
@@ -51,7 +51,7 @@ const generateId = () =>
     ? crypto.randomUUID()
     : `${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
 
-const DesignBuilder = ({ mode }: Props) => {
+const CustomBuilder = ({ mode }: Props) => {
   const [zoom, setZoom] = useState(1);
   const [items, setItems] = useState<SelectedCharm[]>([]);
   const [watch, setWatch] = useState<WatchCustom>(watchCustom[0]);
@@ -62,7 +62,7 @@ const DesignBuilder = ({ mode }: Props) => {
     setItems((prev) => {
       // Event hanya pada charm pertama: menandai user benar-benar mulai mendesain.
       if (prev.length === 0) {
-        track({ event: "design_start", builder: mode });
+        track({ event: "custom_start", mode });
       }
 
       return [
@@ -104,7 +104,7 @@ const DesignBuilder = ({ mode }: Props) => {
   return (
     <section className="bg-gradient-to-b from-white to-rose-50 via-rose-100">
       <div className="container mx-auto flex max-w-7xl flex-col gap-5 px-5 py-20 lg:py-22 md:px-8 lg:px-12">
-        <DesignCanvas
+        <CustomCanvas
           mode={mode}
           baseImage={mode === "watch" ? watch.image : null}
           items={items}
@@ -118,7 +118,7 @@ const DesignBuilder = ({ mode }: Props) => {
         />
 
         {mode === "watch" && (
-          <DesignPicker
+          <CustomPicker
             title="Pilih Watch"
             items={watchCustom}
             categories={watchCategories}
@@ -128,18 +128,19 @@ const DesignBuilder = ({ mode }: Props) => {
           />
         )}
 
-        <DesignPicker
+        <CustomPicker
           title="Pilih Charm"
           items={charms}
           categories={charmCategories}
           getCategory={(c) => c.charmCategory}
           onSelect={addCharm}
+          showSolBasic
         />
 
-        <DesignSummary items={items} watch={mode === "watch" ? watch : null} />
+        <CustomSummary items={items} watch={mode === "watch" ? watch : null} />
       </div>
     </section>
   );
 };
 
-export default DesignBuilder;
+export default CustomBuilder;

@@ -10,6 +10,8 @@ type PickerItem = {
   id: number;
   name: string;
   price: number;
+  // Harga sebelum diskon. Kosongkan jika tidak ada diskon.
+  originalPrice?: number | null;
   image: string;
 };
 
@@ -27,9 +29,11 @@ type Props<T extends PickerItem> = {
   onToggle?: (item: T) => void;
   quota?: number;
   selectedCount?: number;
+  // Tampilkan item statis "sol-basic" di awal daftar. Hanya untuk picker charm.
+  showSolBasic?: boolean;
 };
 
-function DesignPicker<T extends PickerItem>({
+function CustomPicker<T extends PickerItem>({
   title,
   items,
   categories,
@@ -41,6 +45,7 @@ function DesignPicker<T extends PickerItem>({
   onToggle,
   quota,
   selectedCount,
+  showSolBasic = false,
 }: Props<T>) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState(categories[0]?.value ?? "");
@@ -63,12 +68,13 @@ function DesignPicker<T extends PickerItem>({
      return () => document.removeEventListener("mousedown", handleClickOutside);
    }, []);
 
-   // sol-basic item statis - muncul di awal setiap kategori
+   // sol-basic item statis - base polos, hanya untuk picker charm.
    const solBasicItem = {
      id: 0,
      name: "sol-basic",
      image: "/custom/charm/basic.webp",
-     price: 5000,
+     price: 3000,
+     originalPrice: 5000,
    } as T;
 
    const filtered = useMemo(() => {
@@ -92,7 +98,8 @@ function DesignPicker<T extends PickerItem>({
        formatRupiah(solBasicItem.price).toLowerCase().includes(searchLower);
 
      // Mode bundling: picker hanya untuk charm bonus, jadi base polos tidak muncul.
-     if (mode === "bundling") {
+     // Picker watch juga tidak boleh menampilkan base polos charm (bukan ranahnya).
+     if (mode === "bundling" || !showSolBasic) {
        return categoryItems;
      }
 
@@ -102,7 +109,7 @@ function DesignPicker<T extends PickerItem>({
      }
 
      return categoryItems;
-   }, [items, category, search, getCategory, mode]);
+   }, [items, category, search, getCategory, mode, showSolBasic]);
 
   return (
     <div className="rounded-2xl border border-rose-100 bg-white shadow-sm">
@@ -139,7 +146,7 @@ function DesignPicker<T extends PickerItem>({
                       }}
                       className={`block w-full px-3 py-2 text-left text-xs transition hover:bg-rose-50 ${
                         category === cat.value
-                          ? "bg-rose-50/50 font-semibold text-rose-600"
+                          ? "bg-rose-50/50 font-semibold text-rose-900"
                           : "text-slate-700"
                       }`}
                     >
@@ -192,7 +199,7 @@ function DesignPicker<T extends PickerItem>({
                   }}
                   className={`group flex flex-col items-center gap-0.5 rounded-lg border p-1.5 transition ${
                     isSelected
-                      ? "border-rose-500 bg-rose-50/60 ring-1 ring-rose-300"
+                      ? "border-rose-900 bg-rose-50/60 ring-1 ring-rose-300"
                       : isLocked
                         ? "cursor-not-allowed border-rose-50 bg-slate-50 opacity-40"
                         : "border-rose-50 bg-slate-50 hover:border-rose-300 hover:bg-rose-50/60"
@@ -214,9 +221,17 @@ function DesignPicker<T extends PickerItem>({
                     {item.name}
                   </p>
                   {mode !== "bundling" && (
-                    <p className="mt-0.5 text-[10px] leading-none text-rose-500 sm:text-xs">
-                      {formatRupiah(item.price)}
-                    </p>
+                    <span className="mt-0.5 inline-flex items-baseline gap-1 leading-none">
+                      {typeof item.originalPrice === "number" &&
+                        item.originalPrice > item.price && (
+                          <span className="text-[10px] text-slate-400 line-through sm:text-xs">
+                            {formatRupiah(item.originalPrice)}
+                          </span>
+                        )}
+                      <span className="text-[10px] text-rose-900 sm:text-xs">
+                        {formatRupiah(item.price)}
+                      </span>
+                    </span>
                   )}
                 </div>
               </button>
@@ -233,4 +248,4 @@ function DesignPicker<T extends PickerItem>({
   );
 }
 
-export default DesignPicker;
+export default CustomPicker;

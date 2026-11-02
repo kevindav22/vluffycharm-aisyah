@@ -10,13 +10,13 @@ import type { ProductCategory } from "@/types/globalTypes";
 type FilterKey = "all" | ProductCategory;
 
 const emptyMessage: Record<ProductCategory, { title: string; text: string }> = {
-  charm: {
-    title: "Belum ada produk charm",
-    text: "Koleksi charm siap pakai sedang disiapkan. Coba lagi nanti ya.",
+  bracelet: {
+    title: "Belum ada produk bracelet",
+    text: "Koleksi bracelet siap pakai sedang disiapkan. Coba lagi nanti ya.",
   },
-  watch: {
-    title: "COMINGSOON",
-    text: "Koleksi watch sedang kami siapkan. Silakan cek kembali dalam waktu dekat.",
+  "watch-ready": {
+    title: "Belum ada produk watch ready",
+    text: "Koleksi jam tangan siap pakai sedang kami siapkan. Silakan cek kembali dalam waktu dekat.",
   },
   bundling: {
     title: "Belum ada paket bundling",

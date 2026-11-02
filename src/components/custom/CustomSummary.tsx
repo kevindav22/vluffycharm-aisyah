@@ -24,7 +24,7 @@ type Props<T extends PickerItem> = {
   onOrder?: () => void;
 };
 
-function DesignSummary<T extends PickerItem>({
+function CustomSummary<T extends PickerItem>({
   items,
   watch,
   mode,
@@ -50,8 +50,8 @@ function DesignSummary<T extends PickerItem>({
     }
 
     track({
-      event: "design_order",
-      builder: watch ? "watch" : "charm",
+      event: "custom_order",
+      mode: watch ? "watch" : "charm",
       charm_count: items.length,
       value: totalPrice,
     });
@@ -140,7 +140,7 @@ function DesignSummary<T extends PickerItem>({
 
           <div className="flex items-center justify-between gap-3 border-t border-rose-100 pt-2 lg:justify-end">
             <span className="font-semibold text-slate-900">Total</span>
-            <span className="text-lg font-black text-rose-500">
+            <span className="text-lg font-black text-rose-900">
               {formatRupiah(totalPrice)}
             </span>
           </div>
@@ -160,4 +160,4 @@ function DesignSummary<T extends PickerItem>({
   );
 };
 
-export default DesignSummary;
+export default CustomSummary;

@@ -3,7 +3,7 @@
 import { RefObject } from 'react';
 import { toPng } from 'html-to-image';
 
-const useDesignExport = (canvasRef: RefObject<HTMLDivElement | null>, filename = 'charm-design-vluffy') => {
+const useCustomExport = (canvasRef: RefObject<HTMLDivElement | null>, filename = 'charm-design-vluffy') => {
   const handleDownload = async () => {
     if (!canvasRef.current) return;
 
@@ -55,4 +55,4 @@ const useDesignExport = (canvasRef: RefObject<HTMLDivElement | null>, filename =
   };
 };
 
-export default useDesignExport;
+export default useCustomExport;

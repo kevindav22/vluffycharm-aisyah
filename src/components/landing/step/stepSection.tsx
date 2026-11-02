@@ -13,7 +13,7 @@ type StepCategory = StepCategoryGroup["stepCategory"];
 type Icon = ComponentType<{ className?: string }>;
 
 const categoryMeta: Record<StepCategory, { label: string; icon: Icon }> = {
-  customCharm: { label: "Desain Charm", icon: BsStars },
+  customCharm: { label: "Custom Charm", icon: BsStars },
   customWatch: { label: "Custom Watch", icon: BsWatch },
   bundling: { label: "Bundling", icon: HiOutlineGift },
   productReady: { label: "Produk Jadi", icon: FiShoppingBag },

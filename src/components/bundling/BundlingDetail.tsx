@@ -4,8 +4,8 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { FiArrowLeft } from "react-icons/fi";
 import BundlingHero from "./BundlingHero";
-import DesignPicker from "@/components/design/DesignPicker";
-import DesignSummary from "@/components/design/DesignSummary";
+import CustomPicker from "@/components/custom/CustomPicker";
+import CustomSummary from "@/components/custom/CustomSummary";
 import { charmCustom } from "@/data/charmCustom";
 import { formatRupiah, formatWhatsAppLink } from "@/lib/utils";
 import { track } from "@/lib/analytics";
@@ -20,7 +20,7 @@ const categoryLabel: Record<string, string> = {
   "lumi-zodiac": "Lumi Zodiac",
   "lumi-3d": "Lumi 3D",
   "luxor-3d": "Luxor 3D",
-  "luxor-hanging-3d": "Lux Hanging 3D",
+  "luxor-hanging": "Luxor Hanging 3D",
   "lumi-kpop": "Lumi Kpop",
   "lumi-hero": "Lumi Hero",
   "lumi-harry-potter": "Lumi Harry Potter",
@@ -89,7 +89,7 @@ const BundlingDetail = ({ pkg, product }: Props) => {
       <div className="container mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 md:px-8 lg:px-12">
         <Link
           href="/collections"
-          className="inline-flex items-center gap-2 text-sm text-slate-600 transition hover:text-rose-500"
+          className="inline-flex items-center gap-2 text-sm text-slate-600 transition hover:text-rose-700"
         >
           <FiArrowLeft />
           <span>Kembali ke Koleksi</span>
@@ -106,7 +106,7 @@ const BundlingDetail = ({ pkg, product }: Props) => {
             ).length;
 
             return (
-              <DesignPicker
+              <CustomPicker
                 key={index}
                 mode="bundling"
                 title={rule.label}
@@ -127,7 +127,7 @@ const BundlingDetail = ({ pkg, product }: Props) => {
           })}
         </div>
 
-        <DesignSummary
+        <CustomSummary
           mode="bundling"
           items={selectedCharms}
           watch={null}

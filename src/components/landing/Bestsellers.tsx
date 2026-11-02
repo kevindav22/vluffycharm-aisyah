@@ -7,8 +7,8 @@ import ProductPrice from "@/components/ui/ProductPrice";
 import type { Product } from "@/types/globalTypes";
 
 const categoryLabel: Record<Product["category"], string> = {
-  charm: "Charm",
-  watch: "Watch",
+  bracelet: "Bracelet",
+  "watch-ready": "Watch Ready",
   bundling: "Bundling",
 };
 
@@ -31,7 +31,7 @@ const Bestsellers = () => {
           <h2 className="text-xl font-bold leading-tight text-slate-900 md:text-2xl">Best Seller</h2>
           <Link
             href="/collections"
-            className="group inline-flex items-center gap-1.5 text-sm font-semibold text-rose-500 transition hover:text-rose-600"
+            className="group inline-flex items-center gap-1.5 text-sm font-semibold text-rose-900 transition hover:text-rose-700"
           >
             <span>Lihat Semua</span>
             <FiArrowRight className="transition-transform group-hover:translate-x-1" />
@@ -53,7 +53,7 @@ const Bestsellers = () => {
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                   className="object-cover transition-transform"
                 />
-                <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-rose-600 backdrop-blur">
+                <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-rose-900 backdrop-blur">
                   {categoryLabel[product.category]}
                 </span>
               </div>
@@ -75,7 +75,7 @@ const Bestsellers = () => {
         <div className="mt-6 flex justify-center">
           <Link
             href="/collections"
-            className="group inline-flex items-center gap-1.5 rounded-xl border border-rose-200 bg-white px-6 py-2.5 text-sm font-semibold text-rose-500 transition hover:border-rose-300 hover:bg-rose-50"
+            className="group inline-flex items-center gap-1.5 rounded-xl border border-rose-200 bg-white px-6 py-2.5 text-sm font-semibold text-rose-900 transition hover:border-rose-300 hover:bg-rose-50"
           >
             <span>Lihat Semua</span>
             <FiArrowRight className="transition-transform group-hover:translate-x-1" />

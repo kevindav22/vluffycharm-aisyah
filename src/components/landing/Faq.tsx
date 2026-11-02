@@ -62,7 +62,7 @@ const FAQSection = () => {
               <div className="border-t border-rose-100/80 bg-rose-50/50 px-4 py-3 md:px-5">
                 <button
                   onClick={() => setShowAll(!showAll)}
-                  className="group inline-flex w-full items-center justify-center gap-2 text-sm font-semibold text-rose-600 transition-colors hover:text-rose-700 md:text-base"
+                  className="group inline-flex w-full items-center justify-center gap-2 text-sm font-semibold text-rose-900 transition-colors hover:text-rose-700 md:text-base"
                 >
                   <span>
                     {visibleFaqs.length === faqs.length

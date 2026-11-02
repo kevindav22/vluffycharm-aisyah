@@ -20,7 +20,7 @@ type Props = {
   onRemoveSelected: () => void;
 };
 
-const DesignToolbar = ({
+const CustomToolbar = ({
   zoom,
   hasSelected,
   onZoomIn,
@@ -36,7 +36,7 @@ const DesignToolbar = ({
         <Button
           variant="plain"
           onClick={onZoomOut}
-          className="size-8 rounded-none p-0 text-slate-600 hover:bg-rose-50 hover:text-rose-500"
+          className="size-8 rounded-none p-0 text-slate-600 hover:bg-rose-50 hover:text-rose-700"
         >
           <FiMinus />
         </Button>
@@ -48,7 +48,7 @@ const DesignToolbar = ({
         <Button
           variant="plain"
           onClick={onZoomIn}
-          className="size-8 rounded-none p-0 text-slate-600 hover:bg-rose-50 hover:text-rose-500"
+          className="size-8 rounded-none p-0 text-slate-600 hover:bg-rose-50 hover:text-rose-700"
         >
           <FiPlus />
         </Button>
@@ -59,7 +59,7 @@ const DesignToolbar = ({
           <Button
             variant="secondary"
             onClick={onRemoveSelected}
-            className="size-8 p-0 text-rose-600 md:size-auto md:px-4 md:py-2"
+            className="size-8 p-0 text-rose-900 md:size-auto md:px-4 md:py-2"
             title="Hapus Elemen Terpilih"
           >
             <FiXCircle />
@@ -100,4 +100,4 @@ const DesignToolbar = ({
   );
 };
 
-export default DesignToolbar;
+export default CustomToolbar;

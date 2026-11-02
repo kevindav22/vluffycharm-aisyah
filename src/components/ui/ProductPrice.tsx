@@ -20,7 +20,7 @@ const ProductPrice = ({ price, originalPrice, className, priceClassName }: Props
         </span>
       )}
       <span
-        className={cn("text-base font-extrabold text-rose-500", priceClassName)}
+        className={cn("text-base font-extrabold text-rose-900", priceClassName)}
       >
         {formatRupiah(price)}
       </span>

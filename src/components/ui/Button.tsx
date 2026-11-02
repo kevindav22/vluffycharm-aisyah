@@ -15,9 +15,9 @@ const variants: Record<Variant, string> = {
     "bg-gradient-to-r from-[#e9a0b7] via-[#d98faa] to-[#c89fc8] text-white hover:-translate-y-0.5",
   secondary:
     "border border-rose-200 bg-white/80 text-slate-700 backdrop-blur hover:border-rose-300 hover:bg-white",
-  plain: "bg-white text-rose-600 hover:-translate-y-0.5",
+  plain: "bg-white text-rose-900 hover:-translate-y-0.5",
   outline:
-    "border border-2 border-rose-900 bg-transparent text-rose-500 hover:-translate-y-0.5 hover:bg-rose-50",
+    "border border-2 border-rose-900 bg-transparent text-rose-900 hover:-translate-y-0.5 hover:bg-rose-50",
 };
 
 interface ButtonProps {
