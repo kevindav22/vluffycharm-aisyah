@@ -8,6 +8,7 @@ import DesignPicker from "@/components/design/DesignPicker";
 import DesignSummary from "@/components/design/DesignSummary";
 import { charmCustom } from "@/data/charmCustom";
 import { formatRupiah, formatWhatsAppLink } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 import { profilData } from "@/data/statisData";
 import type { BundlingPackage, CharmCustom, Product } from "@/types/globalTypes";
 
@@ -20,6 +21,11 @@ const categoryLabel: Record<string, string> = {
   "lumi-3d": "Lumi 3D",
   "luxor-3d": "Luxor 3D",
   "luxor-hanging-3d": "Lux Hanging 3D",
+  "lumi-kpop": "Lumi Kpop",
+  "lumi-hero": "Lumi Hero",
+  "lumi-harry-potter": "Lumi Harry Potter",
+  "lumi-otomotif": "Lumi Otomotif",
+  "lumi-polka": "Lumi Polka",
 };
 
 type Props = {
@@ -70,6 +76,11 @@ const BundlingDetail = ({ pkg, product }: Props) => {
     Pilihan Charm:
     ${summary}
     Terima kasih.`;
+    track({
+      event: "bundling_order",
+      product_name: product.name,
+      value: product.price,
+    });
     window.open(formatWhatsAppLink(profilData.phone, message));
   };
 

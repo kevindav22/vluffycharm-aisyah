@@ -2,84 +2,83 @@ import type { Product } from "@/types/globalTypes";
 
 export const productData: Product[] = [
   //==================== CHARM ====================
+  // `price` = harga diskon, `originalPrice` = harga awal (dicoret).
   {
     id: 1,
-    name: "Bracelet1",
-    image: "/products/charm/bracelet1.webp",
-    price: 85000,
+    name: "F1 Series",
+    image: "/products/charm/f1.webp",
+    price: 55000,
+    originalPrice: 80000,
     category: "charm",
     bestseller: true,
   },
   {
     id: 2,
-    name: "Bracelet2",
-    image: "/products/charm/bracelet2.webp",
-    price: 95000,
+    name: "Spider Series",
+    image: "/products/charm/spider.webp",
+    price: 60000,
+    originalPrice: 90000,
     category: "charm",
   },
   {
     id: 3,
-    name: "Bracelet3",
-    image: "/products/charm/bracelet3.webp",
-    price: 110000,
+    name: "Spider Couple",
+    image: "/products/charm/spider-couple.webp",
+    price: 70000,
+    originalPrice: 120000,
     category: "charm",
     bestseller: true,
-  },
-  {
-    id: 4,
-    name: "Bracelet4",
-    image: "/products/charm/bracelet4.webp",
-    price: 110000,
-    category: "charm",
-  },
-  {
-    id: 5,
-    name: "Bracelet5",
-    image: "/products/charm/bracelet5.webp",
-    price: 110000,
-    category: "charm",
   },
 
   //==================== WATCH ====================
-  {
-    id: 6,
-    name: "Watch1",
-    image: "/products/watch/watch1.webp",
-    price: 250000,
-    category: "watch",
-    bestseller: true,
-  },
-  {
-    id: 7,
-    name: "Watch2",
-    image: "/products/watch/watch2.webp",
-    price: 220000,
-    category: "watch",
-  },
+  // Belum ada stok/produk watch. Diisi nanti saat data real tersedia.
+  // Selama kosong, kategori watch tampil sebagai "Coming Soon".
 
   //==================== BUNDLING ====================
   // idProduct ada di BundlingPackage (src/data/bundlingData.ts).
   // Harga & nama paket di sini; detail rules di BundlingPackage.
+  // `price` = harga diskon (ditampilkan besar).
+  // `originalPrice` = harga awal (dicoret). Kosongkan jika tanpa diskon.
   {
     id: 8,
-    name: "Italian1",
+    name: "Italian Bundling 1",
     image: "/products/bundling/italian1.webp",
-    price: 70000,
+    price: 55000,
+    originalPrice: 70000,
     category: "bundling",
     bestseller: true,
   },
   {
     id: 9,
-    name: "Italian2",
+    name: "Italian Bundling 2",
     image: "/products/bundling/italian2.webp",
-    price: 90000,
+    price: 68000,
+    originalPrice: 90000,
     category: "bundling",
   },
   {
     id: 10,
-    name: "Italian3",
+    name: "Italian Bundling 3",
     image: "/products/bundling/italian3.webp",
-    price: 150000,
+    price: 80000,
+    originalPrice: 110000,
+    category: "bundling",
+    bestseller: true,
+  },
+  {
+    id: 11,
+    name: "Italian Bundling 4",
+    image: "/products/bundling/italian4.webp",
+    price: 60000,
+    originalPrice: 75000,
+    category: "bundling",
+  },
+  {
+    id: 12,
+    name: "Italian Bundling 5",
+    image: "/products/bundling/italian5.webp",
+    price: 73000,
+    originalPrice: 95000,
     category: "bundling",
   },
 ];

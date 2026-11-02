@@ -43,6 +43,13 @@ const StepSection = ({ category = "all" }: Props) => {
 
   const ActiveIcon = categoryMeta[activeCategory].icon;
 
+  /**
+   * Mobile: maksimal 4 kartu dulu, sisanya muncul lewat tombol.
+   * Desktop: semua kartu.
+   * Satu set kartu yang sama dipakai di dua wadah — bedanya hanya CSS.
+   */
+  const mobileSteps = showAll ? activeSteps : activeSteps.slice(0, 4);
+
   return (
     <section className="flex flex-col overflow-hidden">
       <div className="mx-auto flex w-full max-w-7xl flex-col px-5 py-6 md:px-8 md:py-10 lg:px-12">
@@ -69,18 +76,16 @@ const StepSection = ({ category = "all" }: Props) => {
           })}
         </div>
 
-        {/* MOBILE */}
+        {/* MOBILE — maksimal 4 kartu, sisanya lewat tombol */}
         <div className="grid grid-cols-2 gap-2 py-6 md:hidden">
-          {(showAll ? activeSteps : activeSteps.slice(0, 4)).map(
-            (step, index) => (
-              <StepCard
-                key={step.id}
-                step={step}
-                index={index}
-                icon={ActiveIcon}
-              />
-            ),
-          )}
+          {mobileSteps.map((step, index) => (
+            <StepCard
+              key={step.id}
+              step={step}
+              index={index}
+              icon={ActiveIcon}
+            />
+          ))}
 
           {activeSteps.length > 4 && (
             <Button
@@ -103,7 +108,7 @@ const StepSection = ({ category = "all" }: Props) => {
           )}
         </div>
 
-        {/* DESKTOP & TABLET */}
+        {/* DESKTOP & TABLET — semua langkah tampil, tidak ada tombol */}
         <div className="hidden grid-cols-2 gap-3 py-4 md:grid lg:grid-cols-4 lg:gap-4">
           {activeSteps.map((step, index) => (
             <StepCard

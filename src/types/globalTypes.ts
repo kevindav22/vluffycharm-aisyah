@@ -3,14 +3,25 @@ export type TypesCaraousel = {
   img: string[];
 };
 
-//types profilData
+//types profilData (single source of truth: brand, kontak, dan SEO)
 export type TypesProfile = {
   name: string;
+  shortName: string;
   logo: string;
   tagline: string;
+  description: string;
+  url: string;
+  ogImage: string;
+  locale: string;
+  themeColor: string;
+  keywords: string[];
   phone: string;
   email: string;
   address: string;
+  city: string;
+  region: string;
+  country: string;
+  priceRange: string;
   pesanUmum: string;
   socialMedia: {
     instagram: string;
@@ -33,11 +44,11 @@ export type CharmCategory =
   | "lumi-3d"
   | "luxor-3d"
   | "luxor-hanging-3d"
-  | "kpop"
-  | "hero"
-  | "harry-potter"
-  | "otomotif"
-  | "polka";
+  | "lumi-kpop"
+  | "lumi-hero"
+  | "lumi-harry-potter"
+  | "lumi-otomotif"
+  | "lumi-polka";
 
 export type CharmCustom = {
   id: number;
@@ -99,6 +110,8 @@ export type Product = {
   name: string;
   image: string;
   price: number;
+  // Harga sebelum diskon. Kosongkan (undefined/null) jika tidak ada diskon.
+  originalPrice?: number | null;
   category: ProductCategory;
   bestseller?: boolean;
 };

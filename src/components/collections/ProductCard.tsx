@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import SafeImage from "@/components/ui/SafeImage";
+import ProductPrice from "@/components/ui/ProductPrice";
 import { formatWhatsAppLink, formatRupiah, slugify } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 import { profilData } from "@/data/statisData";
 import type { Product } from "@/types/globalTypes";
 
@@ -52,9 +54,10 @@ Mohon info selanjutnya untuk proses pemesanan. Terima kasih.`;
         <h3 className="line-clamp-2 text-sm font-bold text-slate-900">
           {product.name}
         </h3>
-        <p className="text-base font-extrabold text-rose-500">
-          {formatRupiah(product.price)}
-        </p>
+        <ProductPrice
+          price={product.price}
+          originalPrice={product.originalPrice}
+        />
 
         <div className="mt-auto flex flex-col gap-1.5 pt-1">
           {isBundling && bundlingHref ? (
@@ -67,7 +70,19 @@ Mohon info selanjutnya untuk proses pemesanan. Terima kasih.`;
               </Button>
             </Link>
           ) : (
-            <a href={waLink} target="_blank" rel="noopener noreferrer">
+            <a
+              href={waLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                track({
+                  event: "wa_click",
+                  placement: "product_card",
+                  product_name: product.name,
+                  value: product.price,
+                })
+              }
+            >
               <Button
                 variant="primary"
                 className="w-full justify-center !py-2 text-sm"

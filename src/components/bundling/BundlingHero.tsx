@@ -1,6 +1,6 @@
 import { FiHeart, FiStar, FiTruck, FiShield } from "react-icons/fi";
-import { formatRupiah } from "@/lib/utils";
 import SafeImage from "@/components/ui/SafeImage";
+import ProductPrice from "@/components/ui/ProductPrice";
 import type { Product } from "@/types/globalTypes";
 
 const benefits = [
@@ -33,9 +33,11 @@ const BundlingHero = ({ product, description }: Props) => {
       <div className="flex flex-1 flex-col gap-4">
         <h1 className="text-2xl font-bold text-slate-900">{product.name}</h1>
         <p className="text-slate-600">{description}</p>
-        <p className="text-2xl font-extrabold text-rose-500">
-          {formatRupiah(product.price)}
-        </p>
+        <ProductPrice
+          price={product.price}
+          originalPrice={product.originalPrice}
+          priceClassName="text-2xl"
+        />
 
         <div className="grid grid-cols-2 gap-3 pt-2">
           {benefits.map((benefit, index) => (

@@ -9,6 +9,7 @@ import SafeImage from "@/components/ui/SafeImage";
 import { useBaseCharmSize } from "@/hooks/useBaseCharmSize";
 import type { DesignMode, SelectedCharm } from "@/types/globalTypes";
 import { useBaseWatchSize } from "@/hooks/useBaseWatch";
+import { track } from "@/lib/analytics";
 
 type Props = {
   mode: DesignMode;
@@ -42,6 +43,11 @@ const DesignCanvas = ({
 }: Props) => {
   const canvasRef = useRef<HTMLDivElement>(null);
   const { handleDownload } = useDesignExport(canvasRef);
+
+  const onDownload = () => {
+    track({ event: "design_export", builder: mode, charm_count: items.length });
+    void handleDownload();
+  };
 
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
@@ -89,7 +95,7 @@ const DesignCanvas = ({
         onZoomOut={onZoomOut}
         onResetZoom={onResetZoom}
         onClear={onClear}
-        onDownload={handleDownload}
+        onDownload={onDownload}
         onRemoveSelected={handleRemoveSelected}
       />
 

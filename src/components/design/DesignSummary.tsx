@@ -3,6 +3,7 @@
 import { FaWhatsapp } from "react-icons/fa";
 import { Button } from "@/components/ui/Button";
 import { formatRupiah, formatWhatsAppLink } from "@/lib/utils";
+import { track } from "@/lib/analytics";
 import { profilData } from "@/data/statisData";
 import type { WatchCustom } from "@/types/globalTypes";
 
@@ -39,9 +40,21 @@ function DesignSummary<T extends PickerItem>({
 
   const handleOrder = () => {
     if (isBundling && onOrder) {
+      track({
+        event: "bundling_order",
+        product_name: productName ?? "bundling",
+        value: productPrice ?? 0,
+      });
       onOrder();
       return;
     }
+
+    track({
+      event: "design_order",
+      builder: watch ? "watch" : "charm",
+      charm_count: items.length,
+      value: totalPrice,
+    });
 
     const grouped = items.reduce(
       (acc, item) => {

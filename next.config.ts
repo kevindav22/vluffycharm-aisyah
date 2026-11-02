@@ -1,8 +1,16 @@
 import type { NextConfig } from "next";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const nextConfig: NextConfig = {
+  // Paksa root ke folder project ini.
+  // Tanpa ini Next naik ke ~ dan menemukan /home/kevind/pnpm-lock.yaml.
+  turbopack: {
+    root: dirname(fileURLToPath(import.meta.url)),
+  },
+
   // Tambahkan IP lokal untuk akses mobile
-  allowedDevOrigins: ["10.194.229.192:3000", "10.194.229.192", "192.168.8.220"],
+  allowedDevOrigins: ["192.168.8.244"],
 
   // Kembalikan reactCompiler ke root
   reactCompiler: true,

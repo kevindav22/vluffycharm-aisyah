@@ -6,13 +6,13 @@ const cards = [
   {
     title: "Custom Charm",
     description: "Rancang bracelet charm sesuai ceritamu sendiri.",
-    image: "/images/charm1.webp",
+    image: "/img/bracelet.webp",
     href: "/custom-charm",
   },
   {
     title: "Custom Watch",
     description: "Desain jam tangan dengan kombinasi charm favoritmu.",
-    image: "/images/charm2.webp",
+    image: "/img/watchandbracelet.webp",
     href: "/custom-watch",
   },
 ];

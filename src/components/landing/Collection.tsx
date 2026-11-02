@@ -6,25 +6,25 @@ const collections = [
   {
     title: 'Bracelet',
     description: 'Koleksi gelang premium untuk melengkapi gaya harianmu.',
-    image: '/images/1.png',
+    image: '/img/bracelet.webp',
     href: '/products/bracelet',
   },
   {
     title: 'Watch',
     description: 'Jam tangan elegan untuk setiap momen penting.',
-    image: '/images/2.png',
+    image: '/img/watchandbracelet.webp',
     href: '/products/watch',
   },
   {
     title: 'Accessories',
     description: 'Aksesori pilihan untuk menyempurnakan penampilan.',
-    image: '/images/3.png',
+    image: '/img/couplebracelet2.webp',
     href: '/products/accessories',
   },
   {
     title: 'Charm Custom',
     description: 'Buat kombinasi charm sesuai cerita dan kepribadianmu.',
-    image: '/images/1.png',
+    image: '/img/3dcharm.webp',
     href: '/customize',
   },
 ];

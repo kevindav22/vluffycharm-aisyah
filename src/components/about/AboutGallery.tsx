@@ -3,16 +3,18 @@
 import { useState } from "react";
 import SafeImage from "@/components/ui/SafeImage";
 
-// Placeholder gallery images - nanti kamu ganti dengan foto tenant asli
 const galleryImages = [
-  { id: 1, src: "/images/charm1.webp", alt: "Gallery 1", span: "md:col-span-2 md:row-span-2" },
-  { id: 2, src: "/images/charm2.webp", alt: "Gallery 2", span: "" },
-  { id: 3, src: "/images/charm3.webp", alt: "Gallery 3", span: "md:row-span-2" },
-  { id: 4, src: "/images/charm4.jpg", alt: "Gallery 4", span: "" },
-  { id: 5, src: "/images/charm5.jpg", alt: "Gallery 5", span: "md:col-span-2" },
-  { id: 6, src: "/images/1.png", alt: "Gallery 6", span: "" },
-  { id: 7, src: "/images/charm1.webp", alt: "Gallery 7", span: "" },
-  { id: 8, src: "/images/charm2.webp", alt: "Gallery 8", span: "md:col-span-2" },
+  { id: 1, src: "/img/bracelet.webp", alt: "Gallery 1", span: "md:col-span-2 md:row-span-2" },
+  { id: 2, src: "/img/3dcharm.webp", alt: "Gallery 2", span: "" },
+  { id: 3, src: "/img/couplebracelet2.webp", alt: "Gallery 3", span: "md:row-span-2" },
+  { id: 4, src: "/img/watchandbracelet.webp", alt: "Gallery 4", span: "" },
+  { id: 5, src: "/img/bracelethands.webp", alt: "Gallery 5", span: "md:col-span-2" },
+  { id: 6, src: "/img/cartlist.webp", alt: "Gallery 6", span: "" },
+  { id: 7, src: "/img/charmcategory.webp", alt: "Gallery 7", span: "" },
+  { id: 8, src: "/img/couplebracelet.webp", alt: "Gallery 8", span: "md:col-span-2" },
+  { id: 9, src: "/img/hangingbracelet.webp", alt: "Gallery 9", span: "" },
+  { id: 10, src: "/img/hangingluxor.webp", alt: "Gallery 10", span: "" },
+  { id: 11, src: "/img/sizing.webp", alt: "Gallery 11", span: "" },
 ];
 
 const AboutGallery = () => {

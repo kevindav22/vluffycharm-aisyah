@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 import { FaWhatsapp } from 'react-icons/fa6';
 import { cn, formatWhatsAppLink } from '@/lib/utils';
+import { track } from '@/lib/analytics';
 
 type Variant = 'primary' | 'secondary' | 'plain' | 'outline';
 
@@ -56,19 +57,28 @@ interface WhatsAppButtonProps {
   children?: ReactNode;
   variant?: Variant;
   className?: string;
+  /** Penanda lokasi tombol untuk atribusi di GA4, mis. "header" / "footer". */
+  placement?: string;
 }
 
-export const WhatsAppButton = ({ 
-  phone, 
-  message = '', 
-  children = 'Hubungi Kami', 
-  variant = 'secondary', 
-  className = '' 
+export const WhatsAppButton = ({
+  phone,
+  message = '',
+  children = 'Hubungi Kami',
+  variant = 'secondary',
+  className = '',
+  placement = 'unknown'
 }: WhatsAppButtonProps) => {
   const href = formatWhatsAppLink(phone, message);
 
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={cn(base, variants[variant], className)}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={() => track({ event: 'wa_click', placement })}
+      className={cn(base, variants[variant], className)}
+    >
       <FaWhatsapp />
       {children}
     </a>

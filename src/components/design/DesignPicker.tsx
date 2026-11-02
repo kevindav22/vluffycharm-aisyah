@@ -91,13 +91,18 @@ function DesignPicker<T extends PickerItem>({
        solBasicItem.price.toString().includes(searchLower) ||
        formatRupiah(solBasicItem.price).toLowerCase().includes(searchLower);
 
+     // Mode bundling: picker hanya untuk charm bonus, jadi base polos tidak muncul.
+     if (mode === "bundling") {
+       return categoryItems;
+     }
+
      // Inject sol-basic di awal jika match search atau tidak ada search
      if (!search || solBasicMatches) {
        return [solBasicItem, ...categoryItems];
      }
 
      return categoryItems;
-   }, [items, category, search, getCategory]);
+   }, [items, category, search, getCategory, mode]);
 
   return (
     <div className="rounded-2xl border border-rose-100 bg-white shadow-sm">

@@ -2,6 +2,7 @@
   "name": "charm-building-aisyah",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@12.5.1",
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "build": "next build",

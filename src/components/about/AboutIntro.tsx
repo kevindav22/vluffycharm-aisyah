@@ -8,7 +8,7 @@ const AboutIntro = () => {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative h-64 overflow-hidden rounded-3xl border border-rose-100 bg-rose-50 md:h-80 lg:h-96">
             <SafeImage
-              src="/images/charm1.webp"
+              src="/img/bracelet.webp"
               alt="Vluffy"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

@@ -6,6 +6,7 @@ import DesignPicker from "./DesignPicker";
 import DesignSummary from "./DesignSummary";
 import { charmCustom } from "@/data/charmCustom";
 import { watchCustom } from "@/data/watchCustom";
+import { track } from "@/lib/analytics";
 import type {
   CharmCustom,
   CharmCategory,
@@ -25,11 +26,11 @@ const charmCategories: { value: CharmCategory; label: string }[] = [
   { value: "lumi-3d", label: "Lumi 3D" },
   { value: "luxor-3d", label: "Luxor 3D" },
   { value: "luxor-hanging-3d", label: "Lux Hanging 3D" },
-  { value: "kpop", label: "Kpop" },
-  { value: "hero", label: "Hero" },
-  { value: "harry-potter", label: "Harry Potter" },
-  { value: "otomotif", label: "Otomotif" },
-  { value: "polka", label: "Polka" },
+  { value: "lumi-kpop", label: "Lumi Kpop" },
+  { value: "lumi-hero", label: "Lumi Hero" },
+  { value: "lumi-harry-potter", label: "Lumi Harry Potter" },
+  { value: "lumi-otomotif", label: "Lumi Otomotif" },
+  { value: "lumi-polka", label: "Lumi Polka" },
 ];
 
 const watchCategories: { value: WatchCategory; label: string }[] = [
@@ -58,18 +59,25 @@ const DesignBuilder = ({ mode }: Props) => {
   const charms = useMemo<CharmCustom[]>(() => charmCustom, []);
 
   const addCharm = (charm: CharmCustom) => {
-    setItems((prev) => [
-      ...prev,
-      {
-        ...charm,
-        instanceId: generateId(),
-        x: 150,
-        y: 100,
-        scale: 1,
-        rotate: 0,
-        zIndex: prev.length + 1,
-      },
-    ]);
+    setItems((prev) => {
+      // Event hanya pada charm pertama: menandai user benar-benar mulai mendesain.
+      if (prev.length === 0) {
+        track({ event: "design_start", builder: mode });
+      }
+
+      return [
+        ...prev,
+        {
+          ...charm,
+          instanceId: generateId(),
+          x: 150,
+          y: 100,
+          scale: 1,
+          rotate: 0,
+          zIndex: prev.length + 1,
+        },
+      ];
+    });
   };
 
   const updateTransform = (

@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
-import { formatRupiah, slugify } from "@/lib/utils";
+import { slugify } from "@/lib/utils";
 import { productData } from "@/data/productData";
 import SafeImage from "@/components/ui/SafeImage";
+import ProductPrice from "@/components/ui/ProductPrice";
 import type { Product } from "@/types/globalTypes";
 
 const categoryLabel: Record<Product["category"], string> = {
@@ -61,9 +62,11 @@ const Bestsellers = () => {
                 <h3 className="text-sm font-bold text-slate-800 line-clamp-1">
                   {product.name}
                 </h3>
-                <p className="text-sm font-semibold text-rose-500">
-                  {formatRupiah(product.price)}
-                </p>
+                <ProductPrice
+                  price={product.price}
+                  originalPrice={product.originalPrice}
+                  priceClassName="text-sm font-semibold"
+                />
               </div>
             </Link>
           ))}
