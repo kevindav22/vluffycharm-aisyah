@@ -1,7 +1,7 @@
 import { TypesSeo } from "@/types/globalTypes";
 
 export const seoData: TypesSeo = {
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://vluffycharm.my.id",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.vluffycharm.my.id",
   ogImage: "/og-image.png",
   locale: "id_ID",
   themeColor: "#fda4af",
