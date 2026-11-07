@@ -5,7 +5,10 @@ const CTASection = () => {
   return (
     <section className="bg-gradient-to-b from-[#edd5ec]/70 via-pink-100/80 to-rose-50">
       <div className="container mx-auto max-w-7xl py-6 md:py-12 px-5 md:px-8 lg:px-12">
-        <div className="flex flex-col items-center gap-5 rounded-xl bg-white/80 p-8 text-center shadow-sm backdrop-blur md:p-10">
+        <div
+          data-aos="zoom-in"
+          className="flex flex-col items-center gap-5 rounded-xl bg-white/80 p-8 text-center shadow-sm backdrop-blur md:p-10"
+        >
           <h2 className="text-xl font-bold leading-tight text-slate-900 md:text-2xl">
             Temukan Pilihanmu atau Buat Desain Sendiri
           </h2>

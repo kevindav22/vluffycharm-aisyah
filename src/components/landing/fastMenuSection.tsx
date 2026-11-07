@@ -25,14 +25,15 @@ const fastMenuItems = [
 const FastMenuSection = () => {
   return (
     <section className="bg-gradient-to-b from-white via-rose-50/40 to-white px-5 py-8 md:px-8 md:py-14 lg:px-12">
-      {/* Heading tersembunyi: menjaga urutan h1 -> h2 -> h3 untuk screen reader. */}
       <h2 className="sr-only">Layanan Vluffy Accessories</h2>
       <div className="container mx-auto max-w-6xl">
-        <div className="grid gap-4 md:grid-cols-3 md:gap-5">
+        <div data-aos="fade-up" className="grid gap-4 md:grid-cols-3 md:gap-5">
           {fastMenuItems.map(({ title, description, href, actionText }, index) => (
             <Link
               key={href}
               href={href}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
               className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-rose-100 bg-white p-5 shadow-[0_1px_2px_rgba(190,24,93,0.04)] transition-all duration-500 hover:-translate-y-1 hover:border-rose-200 hover:shadow-[0_20px_45px_-28px_rgba(190,24,93,0.45)] md:p-7"
             >
               <span

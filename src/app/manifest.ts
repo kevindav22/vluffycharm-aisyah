@@ -1,15 +1,16 @@
 import type { MetadataRoute } from "next";
 import { profilData } from "@/data/statisData";
+import { seoData } from "@/data/seoData";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: profilData.name,
     short_name: profilData.shortName,
-    description: profilData.description,
+    description: seoData.description,
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
-    theme_color: profilData.themeColor,
+    theme_color: seoData.themeColor,
     lang: "id",
     categories: ["shopping"],
     icons: [

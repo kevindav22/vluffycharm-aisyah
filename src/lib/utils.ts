@@ -35,8 +35,6 @@ export function slugify(text: string) {
     .replace(/^-+|-+$/g, "");
 }
 
-// lib/scrollToTop.ts
-
 export const handleScrollToTop = (
   e: React.MouseEvent<HTMLAnchorElement>,
   href: string,
@@ -56,4 +54,3 @@ export const handleScrollToTop = (
   }
 };
 
-//=================================================

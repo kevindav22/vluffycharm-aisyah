@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import CategoryFilter from "./CategoryFilter";
 import ProductCard from "./ProductCard";
 import EmptyState from "@/components/ui/EmptyState";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import { productData } from "@/data/productData";
 import type { ProductCategory } from "@/types/globalTypes";
 
@@ -24,17 +25,15 @@ const emptyMessage: Record<ProductCategory, { title: string; text: string }> = {
   },
 };
 
-const CollectionSection = () => {
+const CollectionSection = ({ crumbs }: { crumbs: { name: string; path: string }[] }) => {
   const [activeCategory, setActiveCategory] = useState<FilterKey>("all");
   const [search, setSearch] = useState("");
-
   const filteredProducts = useMemo(() => {
     return productData
       .filter((p) => activeCategory === "all" || p.category === activeCategory)
       .filter((p) => p.name.toLowerCase().includes(search.toLowerCase()));
   }, [activeCategory, search]);
 
-  // Kategori dipilih tapi datanya masih kosong -> tampilkan state khusus.
   const emptyCategory =
     activeCategory !== "all" && filteredProducts.length === 0
       ? activeCategory
@@ -42,12 +41,22 @@ const CollectionSection = () => {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto max-w-7xl px-5 pt-16 md:px-8 lg:px-12">
+      <div className="mx-auto max-w-7xl px-5 pb-12 pt-20 md:px-8 md:pb-16 md:pt-24 lg:px-12">
+        <div className="mb-3">
+          <Breadcrumb items={crumbs} />
+        </div>
+        <h1 className="text-center text-2xl font-black text-slate-900 md:text-3xl lg:text-4xl">
+          Koleksi Bracelet Charm &amp; Watch Ready
+        </h1>
+
         <CategoryFilter active={activeCategory} onChange={setActiveCategory} />
 
         <div className="flex justify-end">
           <input
-            type="text"
+            id="cari-produk"
+            name="cari-produk"
+            type="search"
+            autoComplete="off"
             placeholder="Cari produk..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}

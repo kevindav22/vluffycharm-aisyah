@@ -1,27 +1,16 @@
-// types for hero
 export type TypesCaraousel = {
   img: string[];
 };
 
-//types profilData (single source of truth: brand, kontak, dan SEO)
 export type TypesProfile = {
   name: string;
   shortName: string;
   logo: string;
   tagline: string;
-  description: string;
-  url: string;
-  ogImage: string;
-  locale: string;
-  themeColor: string;
-  keywords: string[];
   phone: string;
   email: string;
   address: string;
-  city: string;
-  region: string;
-  country: string;
-  priceRange: string;
+  mapsUrl: string;
   pesanUmum: string;
   socialMedia: {
     instagram: string;
@@ -30,10 +19,35 @@ export type TypesProfile = {
   };
 };
 
-// types for design mode (ditentukan oleh URL, bukan button)
+export type TypesSeo = {
+  url: string;
+  ogImage: string;
+  locale: string;
+  themeColor: string;
+  keywords: string[];
+  title: string;
+  description: string;
+  priceRange: string;
+  sameAs: string[];
+  address: {
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: string;
+  };
+  regionCode: string;
+  geo: { lat: number; lng: number };
+  hasMap: string;
+  openingHours: {
+    days: string[];
+    opens: string;
+    closes: string;
+  };
+};
+
 export type CustomMode = "charm" | "watch";
 
-// types for charm custom
 export type CharmCategory =
   | "solid-color"
   | "lumi-pink"
@@ -54,13 +68,12 @@ export type CharmCustom = {
   id: number;
   name: string;
   price: number;
-  // Harga sebelum diskon. Kosongkan (undefined/null) jika tidak ada diskon.
+
   originalPrice?: number | null;
   image: string;
   charmCategory: CharmCategory;
 };
 
-// types for watch custom
 export type WatchCategory =
   | "type1a"
   | "type1b"
@@ -73,13 +86,12 @@ export type WatchCustom = {
   id: number;
   name: string;
   price: number;
-  // Harga sebelum diskon. Kosongkan (undefined/null) jika tidak ada diskon.
+
   originalPrice?: number | null;
   image: string;
   watchCategory: WatchCategory;
 };
 
-// types for selected charm on canvas
 export type SelectedCharm = CharmCustom & {
   instanceId: string;
   x: number;
@@ -89,7 +101,6 @@ export type SelectedCharm = CharmCustom & {
   zIndex: number;
 };
 
-// types for step guide (cara kerja)
 export type StepItem = {
   id: number;
   title: string;
@@ -101,14 +112,6 @@ export type StepCategoryGroup = {
   step: StepItem[];
 };
 
-
-//=========================================
-// PRODUCT COLLECTIONS (produk jadi)
-//=========================================
-
-// Kategori produk jadi yang dijual di collections.
-// `bracelet` = gelang charm siap pakai (bukan Custom Charm /custom-charm).
-// `watch-ready` = jam tangan siap pakai (bukan Custom Watch /custom-watch).
 export type ProductCategory = "bracelet" | "watch-ready" | "bundling";
 
 export type Product = {
@@ -116,18 +119,17 @@ export type Product = {
   name: string;
   image: string;
   price: number;
-  // Harga sebelum diskon. Kosongkan (undefined/null) jika tidak ada diskon.
+
   originalPrice?: number | null;
   category: ProductCategory;
   bestseller?: boolean;
+
+  description?: string;
+
+  keywords?: string[];
 };
 
-// productData adalah array tunggal produk jadi (sumber kebenaran).
 export type TypesProductData = Product[];
-
-//=========================================
-// BUNDLING PACKAGES (detail keperluan slug)
-//=========================================
 
 export type BundlingRule = {
   label: string;
@@ -137,7 +139,7 @@ export type BundlingRule = {
 
 export type BundlingPackage = {
   id: number;
-  idProduct: number; 
+  idProduct: number;
   description: string;
   rules: BundlingRule[];
 };

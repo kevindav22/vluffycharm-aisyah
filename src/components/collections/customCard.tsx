@@ -22,10 +22,12 @@ const CustomCard = () => {
     <section className="bg-white">
       <div className="mx-auto max-w-7xl px-5 py-12 md:px-8 lg:px-12">
         <div className="grid gap-5 md:grid-cols-2">
-          {cards.map((card) => (
+          {cards.map((card, index) => (
             <Link
               key={card.href}
               href={card.href}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
               className="group relative flex min-h-64 flex-col justify-end overflow-hidden rounded-3xl border border-rose-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1"
             >
               <div className="absolute inset-0">
@@ -34,6 +36,7 @@ const CustomCard = () => {
                   alt={card.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
+                  style={{ aspectRatio: "16 / 9" }}
                   className="object-cover transition-transform"
                 />
               </div>

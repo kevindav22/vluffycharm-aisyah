@@ -14,7 +14,6 @@ type Props = {
   onSelect: () => void;
 };
 
-// Elemen yang dirangkai di canvas (reuse SelectedCharm). Bisa digeser/diubah skala.
 const CustomItem = ({
   item,
   isSelected,

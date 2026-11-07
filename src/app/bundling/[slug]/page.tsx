@@ -77,8 +77,19 @@ const BundlingPage = async ({ params }: { params: Promise<Params> }) => {
   const { pkg, product } = bundle;
   const path = `/bundling/${slug}`;
 
+  const otherBundles = productData.filter(
+    (p) => p.category === "bundling" && p.id !== product.id,
+  );
+
+  const crumbs = [
+    { name: "Beranda", path: "/" },
+    { name: "Koleksi", path: "/collections" },
+    { name: "Bundling", path: "/collections/bundling" },
+    { name: product.name, path },
+  ];
+
   return (
-    <section className="bg-white pt-18">
+    <>
       <JsonLd
         data={productSchema({
           name: product.name,
@@ -88,17 +99,18 @@ const BundlingPage = async ({ params }: { params: Promise<Params> }) => {
           url: path,
         })}
       />
-      <JsonLd
-        data={breadcrumbSchema([
-          { name: "Beranda", path: "/" },
-          { name: "Koleksi", path: "/collections" },
-          { name: product.name, path },
-        ])}
+      <JsonLd data={breadcrumbSchema(crumbs)} />
+
+      <BundlingDetail
+        crumbs={crumbs}
+        pkg={pkg}
+        product={product}
+        others={otherBundles}
       />
-      <BundlingDetail pkg={pkg} product={product} />
+
       <StepSection category="bundling" />
       <CTASection />
-    </section>
+    </>
   );
 };
 

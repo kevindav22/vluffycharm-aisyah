@@ -1,57 +1,63 @@
-import { faqData } from "@/data/faqData";
+import { faqData, type FaqItem } from "@/data/faqData";
 import { profilData } from "@/data/statisData";
+import { seoData } from "@/data/seoData";
 import { absoluteUrl, siteUrl } from "@/lib/seo";
 
-const socialLinks = [
-  profilData.socialMedia.instagram,
-  profilData.socialMedia.tiktok,
-  profilData.socialMedia.shopee,
-];
-
-/** Organization + LocalBusiness — kunci local SEO (Solo). */
 export const organizationSchema = () => ({
   "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness"],
+  "@type": ["Organization", "Store"],
   "@id": `${siteUrl}/#organization`,
   name: profilData.name,
   alternateName: profilData.shortName,
   url: siteUrl,
   logo: absoluteUrl(profilData.logo),
-  image: absoluteUrl(profilData.ogImage),
-  description: profilData.description,
+  image: absoluteUrl(seoData.ogImage),
+  description: seoData.description,
   telephone: `+${profilData.phone}`,
   email: profilData.email,
-  priceRange: profilData.priceRange,
+  priceRange: seoData.priceRange,
   address: {
     "@type": "PostalAddress",
-    addressLocality: profilData.city,
-    addressRegion: profilData.region,
-    addressCountry: profilData.country,
+    streetAddress: seoData.address.streetAddress,
+    addressLocality: seoData.address.addressLocality,
+    addressRegion: seoData.address.addressRegion,
+    postalCode: seoData.address.postalCode,
+    addressCountry: seoData.address.addressCountry,
+  },
+  hasMap: seoData.hasMap,
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: seoData.geo.lat,
+    longitude: seoData.geo.lng,
   },
   areaServed: {
     "@type": "Country",
     name: "Indonesia",
   },
-  sameAs: socialLinks,
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: seoData.openingHours.days,
+    opens: seoData.openingHours.opens,
+    closes: seoData.openingHours.closes,
+  },
+  sameAs: seoData.sameAs,
 });
 
-/** WebSite — mendefinisikan nama situs untuk Google. */
 export const websiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": `${siteUrl}/#website`,
   url: siteUrl,
   name: profilData.name,
-  description: profilData.description,
+  description: seoData.description,
   inLanguage: "id-ID",
   publisher: { "@id": `${siteUrl}/#organization` },
 });
 
-/** FAQPage — memunculkan accordion FAQ di hasil pencarian. */
-export const faqSchema = () => ({
+export const faqSchema = (items: FaqItem[] = faqData) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqData.map((item) => ({
+  mainEntity: items.map((item) => ({
     "@type": "Question",
     name: item.question,
     acceptedAnswer: {
@@ -69,7 +75,6 @@ type ProductSchemaInput = {
   url: string;
 };
 
-/** Product — syarat rich result produk (harga, stok, merek). */
 export const productSchema = ({
   name,
   description,
@@ -90,14 +95,34 @@ export const productSchema = ({
   offers: {
     "@type": "Offer",
     url: absoluteUrl(url),
+
+    price: String(price),
     priceCurrency: "IDR",
-    price,
     availability: "https://schema.org/InStock",
     seller: { "@id": `${siteUrl}/#organization` },
+
+    shippingDetails: {
+      "@type": "OfferShippingDetails",
+      shippingDestination: {
+        "@type": "DefinedRegion",
+        addressCountry: "ID",
+      },
+      shippingRate: {
+        "@type": "MonetaryAmount",
+        value: "0",
+        currency: "IDR",
+      },
+    },
+    hasMerchantReturnPolicy: {
+      "@type": "MerchantReturnPolicy",
+      applicableCountry: "ID",
+      returnPolicyCategory:
+        "https://schema.org/MerchantReturnFiniteReturnWindow",
+      merchantReturnDays: 3,
+    },
   },
 });
 
-/** ItemList — mendaftarkan produk di halaman koleksi agar terbaca Google. */
 export const itemListSchema = ({
   name,
   items,
@@ -118,7 +143,7 @@ export const itemListSchema = ({
   })),
 });
 
-/** BreadcrumbList — menampilkan hierarki URL di SERP. */export const breadcrumbSchema = (
+export const breadcrumbSchema = (
   items: { name: string; path: string }[],
 ) => ({
   "@context": "https://schema.org",

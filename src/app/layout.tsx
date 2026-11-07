@@ -1,13 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Semi_Condensed, Teko } from "next/font/google";
 
+import "aos/dist/aos.css";
+
 import "./globals.css";
 
+import AosProvider from "@/components/ui/AosProvider";
 import Header from "@/components/landing/Header";
 import Footer from "@/components/landing/Footer";
 import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { profilData } from "@/data/statisData";
+import { seoData } from "@/data/seoData";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { siteUrl } from "@/lib/seo";
 
@@ -25,11 +29,10 @@ const heading = Teko({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${profilData.name} — ${profilData.tagline}`,
+    default: seoData.title,
     template: `%s | ${profilData.shortName}`,
   },
-  description: profilData.description,
-  keywords: profilData.keywords,
+  description: seoData.description,
   applicationName: profilData.name,
   authors: [{ name: profilData.name, url: siteUrl }],
   creator: profilData.name,
@@ -40,25 +43,25 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: profilData.locale,
+    locale: seoData.locale,
     url: siteUrl,
     siteName: profilData.name,
-    title: `${profilData.name} — ${profilData.tagline}`,
-    description: profilData.description,
+    title: seoData.title,
+    description: seoData.description,
     images: [
       {
-        url: profilData.ogImage,
+        url: seoData.ogImage,
         width: 1200,
         height: 630,
-        alt: `${profilData.name} — ${profilData.tagline}`,
+        alt: seoData.title,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profilData.name} — ${profilData.tagline}`,
-    description: profilData.description,
-    images: [profilData.ogImage],
+    title: seoData.title,
+    description: seoData.description,
+    images: [seoData.ogImage],
   },
   robots: {
     index: true,
@@ -71,24 +74,23 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  // Ikon diambil dari file convention: src/app/icon.png & src/app/apple-icon.png
+
   manifest: "/manifest.webmanifest",
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
   other: {
-    "geo.region": profilData.country,
-    "geo.placename": profilData.city,
+    "geo.region": seoData.regionCode,
+    "geo.placename": `${seoData.address.addressLocality}, ${seoData.address.addressRegion}`,
+    "geo.position": `${seoData.geo.lat};${seoData.geo.lng}`,
+    ICBM: `${seoData.geo.lat}, ${seoData.geo.lng}`,
   },
 };
 
-// Pengaturan khusus layar mobile agar interaksi tap responsif.
-// Catatan: userScalable/maximumScale sengaja dibiarkan default agar
-// pengguna tetap bisa zoom (WCAG 1.4.4).
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: profilData.themeColor,
+  themeColor: seoData.themeColor,
 };
 
 const RootLayout = ({
@@ -105,6 +107,7 @@ const RootLayout = ({
       <body className="antialiased touch-manipulation">
         <JsonLd data={organizationSchema()} />
         <JsonLd data={websiteSchema()} />
+        <AosProvider />
         <Header />
         <main>{children}</main>
         <Footer />

@@ -9,8 +9,13 @@ import { formatWhatsAppLink } from "@/lib/utils";
 const navItems = [
   { label: "Beranda", href: "/" },
   { label: "Collections", href: "/collections" },
+  { label: "Bracelet", href: "/collections/bracelet" },
+  { label: "Watch Ready", href: "/collections/watch-ready" },
+  { label: "Bundling", href: "/collections/bundling" },
   { label: "Custom Charm", href: "/custom-charm" },
   { label: "Custom Watch", href: "/custom-watch" },
+  { label: "Panduan Ukuran", href: "/panduan-ukuran" },
+  { label: "Charm Bracelet Jogja", href: "/charm-jogja" },
   { label: "Tentang Kami", href: "/about" },
 ];
 
@@ -87,9 +92,16 @@ const Footer = () => {
                   <span>{profilData.email}</span>
                 </a>
               </li>
-              <li className="flex items-start gap-2.5 text-sm text-slate-600">
-                <FaLocationDot className="mt-0.5 shrink-0 text-rose-900" />
-                <span>{profilData.address}</span>
+              <li>
+                <a
+                  href={profilData.mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2.5 text-sm text-slate-600 transition hover:text-rose-700"
+                >
+                  <FaLocationDot className="mt-0.5 shrink-0 text-rose-900" aria-hidden="true" />
+                  <span>{profilData.address}</span>
+                </a>
               </li>
             </ul>
             <div className="flex items-center gap-3">

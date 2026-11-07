@@ -10,7 +10,6 @@ type PickerItem = {
   id: number;
   name: string;
   price: number;
-  // Harga sebelum diskon. Kosongkan jika tidak ada diskon.
   originalPrice?: number | null;
   image: string;
 };
@@ -20,16 +19,13 @@ type Props<T extends PickerItem> = {
   items: T[];
   categories: { value: string; label: string }[];
   getCategory: (item: T) => string;
-  // mode custom (default)
   onSelect?: (item: T) => void;
   selectedId?: number;
-  // mode bundling
   mode?: "bundling";
   selectedIds?: number[];
   onToggle?: (item: T) => void;
   quota?: number;
   selectedCount?: number;
-  // Tampilkan item statis "sol-basic" di awal daftar. Hanya untuk picker charm.
   showSolBasic?: boolean;
 };
 
@@ -68,7 +64,6 @@ function CustomPicker<T extends PickerItem>({
      return () => document.removeEventListener("mousedown", handleClickOutside);
    }, []);
 
-   // sol-basic item statis - base polos, hanya untuk picker charm.
    const solBasicItem = {
      id: 0,
      name: "sol-basic",
@@ -80,7 +75,6 @@ function CustomPicker<T extends PickerItem>({
    const filtered = useMemo(() => {
      const searchLower = search.toLowerCase();
 
-     // Filter items berdasarkan kategori dan search
      const categoryItems = items.filter((item) => {
        const matchesCategory = getCategory(item) === category;
        const matchesSearch =
@@ -91,19 +85,15 @@ function CustomPicker<T extends PickerItem>({
        return matchesCategory && matchesSearch;
      });
 
-     // Check jika sol-basic match search
      const solBasicMatches =
        solBasicItem.name.toLowerCase().includes(searchLower) ||
        solBasicItem.price.toString().includes(searchLower) ||
        formatRupiah(solBasicItem.price).toLowerCase().includes(searchLower);
 
-     // Mode bundling: picker hanya untuk charm bonus, jadi base polos tidak muncul.
-     // Picker watch juga tidak boleh menampilkan base polos charm (bukan ranahnya).
      if (mode === "bundling" || !showSolBasic) {
        return categoryItems;
      }
 
-     // Inject sol-basic di awal jika match search atau tidak ada search
      if (!search || solBasicMatches) {
        return [solBasicItem, ...categoryItems];
      }
@@ -160,7 +150,10 @@ function CustomPicker<T extends PickerItem>({
             <div className="relative min-w-0 w-24 sm:w-36 md:w-48">
               <FiSearch className="pointer-events-none absolute inset-y-0 left-2 my-auto text-xs text-slate-400" />
               <input
-                type="text"
+                id={`${title.toLowerCase().replace(/\s+/g, "-")}-search`}
+                name={`${title.toLowerCase().replace(/\s+/g, "-")}-search`}
+                type="search"
+                autoComplete="off"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Cari..."
@@ -175,7 +168,6 @@ function CustomPicker<T extends PickerItem>({
         {filtered.length > 0 ? (
           <div className="grid grid-cols-6 gap-0.5 md:grid-cols-10 lg:grid-cols-12">
             {filtered.map((item) => {
-              // Mode bundling: multi-select dengan quota
               const isBundling = mode === "bundling";
               const isSelected = isBundling
                 ? selectedIds?.includes(item.id) ?? false
@@ -211,6 +203,7 @@ function CustomPicker<T extends PickerItem>({
                     alt={item.name}
                     fill
                     quality={60}
+                    style={{ aspectRatio: "1 / 1" }}
                     sizes="(max-width: 640px) 20vw, (max-width: 1024px) 15vw, 10vw"
                     className="object-contain p-1 transition-transform duration-300 group-hover:scale-102"
                   />

@@ -11,8 +11,6 @@ import type { CustomMode, SelectedCharm } from "@/types/globalTypes";
 import { useBaseWatchSize } from "@/hooks/useBaseWatchSize";
 import { track } from "@/lib/analytics";
 
-// react-moveable (~26 KiB+) hanya perlu saat ada item terpilih di kanvas.
-// Dimuat dinamis agar tidak membebani initial bundle halaman landing.
 const Moveable = dynamic(() => import("react-moveable"), { ssr: false });
 
 type Props = {

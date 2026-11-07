@@ -43,15 +43,10 @@ const StepSection = ({ category = "all" }: Props) => {
 
   const ActiveIcon = categoryMeta[activeCategory].icon;
 
-  /**
-   * Mobile: maksimal 4 kartu dulu, sisanya muncul lewat tombol.
-   * Desktop: semua kartu.
-   * Satu set kartu yang sama dipakai di dua wadah — bedanya hanya CSS.
-   */
   const mobileSteps = showAll ? activeSteps : activeSteps.slice(0, 4);
 
   return (
-    <section className="flex flex-col overflow-hidden">
+    <section className="flex flex-col overflow-hidden bg-white">
       <div className="mx-auto flex w-full max-w-7xl flex-col px-5 py-6 md:px-8 md:py-10 lg:px-12">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-2 text-center">
           <h2 className="text-xl font-bold leading-tight text-slate-900 md:text-2xl">
@@ -134,7 +129,11 @@ function StepCard({
   icon: Icon;
 }) {
   return (
-    <div className="flex h-full flex-col gap-1.5 rounded-xl border border-rose-200 bg-white/80 p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-rose-200">
+    <div
+      data-aos="fade-up"
+      data-aos-delay={index * 80}
+      className="flex h-full flex-col gap-1.5 rounded-xl border border-rose-200 bg-white/80 p-3.5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-rose-200"
+    >
       <div className="flex items-start justify-between gap-2">
         <div className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-rose-200 via-pink-200 to-[#edd5ec] text-sm shadow-sm shadow-rose-200/50">
           <Icon />

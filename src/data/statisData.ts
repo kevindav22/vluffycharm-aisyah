@@ -9,45 +9,22 @@ export const carouselImg: TypesCaraousel = {
   ],
 };
 
-// Single source of truth: brand, kontak, dan metadata SEO.
-// Ubah di sini saja, seluruh halaman (header, footer, metadata, sitemap,
-// robots, JSON-LD) ikut menyesuaikan.
 export const profilData: TypesProfile = {
   name: "Vluffy Accessories",
   shortName: "Vluffy",
   logo: "/logo/logovluffy.webp",
   tagline: "Handmade Accessories",
-  description:
-    "Vluffy Accessories membuat charm bracelet dan jam tangan custom handmade di Solo. Rangkai charm sesuai ceritamu, dari koleksi siap pakai hingga desain sendiri.",
-  // Domain produksi. Bisa dioverride lewat NEXT_PUBLIC_SITE_URL tanpa ubah kode.
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://vluffy.my.id",
-  ogImage: "/og-image.png",
-  locale: "id_ID",
-  themeColor: "#fda4af",
-  keywords: [
-    "charm bracelet",
-    "gelang charm",
-    "charm custom",
-    "gelang custom",
-    "jam tangan custom",
-    "custom watch",
-    "aksesoris handmade",
-    "charm bracelet solo",
-    "vluffy",
-    "vluffy accessories",
-  ],
   phone: "6285786518023",
   email: "vluffyje@gmail.com",
-  address: "Solo, Jawa Tengah, Indonesia",
-  city: "Solo",
-  region: "Jawa Tengah",
-  country: "ID",
-  priceRange: "Rp55.000 - Rp250.000",
+  address:
+    "Jl. Nusa Indah No.58, Ngringin, Condongcatur, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55283",
+  mapsUrl:
+    "https://www.google.com/maps/place/Vluffy+Store/@-7.7561768,110.409622,17z/data=!4m6!3m5!1s0x2e7a599d042723f5:0xb50947a1dbb808bd!8m2!3d-7.7561768!4d110.409622!16s%2Fg%2F11zz4sgqrc",
   pesanUmum:
     "Halo kak, saya ingin bertanya tanya terkait pembelian produk apakah bisa?, saya sangat tertarik dengan produk yang dimiliki Vluffy Accessories",
   socialMedia: {
-    instagram: "https://instagram.com/vluffy",
-    tiktok: "https://tiktok.com/@vluffy",
-    shopee: "https://shopee.co.id/vluffy",
+    instagram: "https://www.instagram.com/vluffy.craft",
+    tiktok: "https://www.tiktok.com/@vluffy.craft",
+    shopee: "https://id.shp.ee/6kE8XNqw",
   },
 };

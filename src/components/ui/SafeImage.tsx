@@ -13,9 +13,7 @@ type SafeImageProps = ImageProps & {
 
 const SafeImage = ({ useNativeImg = false, fallbackIcon, fallbackClassName, className, src, alt, ...props }: SafeImageProps) => {
   const [hasError, setHasError] = useState(false);
-  // Alt default memakai nama brand, bukan teks template lama.
   const resolvedAlt = alt || profilData.name || 'Foto produk';
-  // Native img tidak butuh dimensi; cegah atribut next/image bocor ke DOM.
   const { fill, priority, quality, sizes, placeholder, blurDataURL, loader, ...imgProps } = props;
 
   useEffect(() => {

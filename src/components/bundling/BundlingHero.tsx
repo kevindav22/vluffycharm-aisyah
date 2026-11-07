@@ -19,18 +19,22 @@ const BundlingHero = ({ product, description }: Props) => {
   return (
     <div className="flex flex-col gap-8 lg:flex-row">
       <div className="flex-shrink-0">
-        <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-rose-100 bg-rose-50 lg:w-96">
+        <div
+          data-aos="fade-up"
+          className="relative aspect-square w-full overflow-hidden rounded-2xl border border-rose-100 bg-rose-50 lg:w-96"
+        >
           <SafeImage
             src={product.image}
             alt={product.name}
             fill
             sizes="(max-width: 1024px) 100vw, 384px"
+            style={{ aspectRatio: "1 / 1" }}
             className="object-cover"
           />
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col gap-4">
+      <div data-aos="fade-up" className="flex min-w-0 flex-1 flex-col gap-4">
         <h1 className="text-2xl font-bold text-slate-900">{product.name}</h1>
         <p className="text-slate-600">{description}</p>
         <ProductPrice

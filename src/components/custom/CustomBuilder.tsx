@@ -60,7 +60,6 @@ const CustomBuilder = ({ mode }: Props) => {
 
   const addCharm = (charm: CharmCustom) => {
     setItems((prev) => {
-      // Event hanya pada charm pertama: menandai user benar-benar mulai mendesain.
       if (prev.length === 0) {
         track({ event: "custom_start", mode });
       }
@@ -102,44 +101,42 @@ const CustomBuilder = ({ mode }: Props) => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-rose-50 via-rose-100">
-      <div className="container mx-auto flex max-w-7xl flex-col gap-5 px-5 py-20 lg:py-22 md:px-8 lg:px-12">
-        <CustomCanvas
-          mode={mode}
-          baseImage={mode === "watch" ? watch.image : null}
-          items={items}
-          zoom={zoom}
-          onRemove={removeItem}
-          onClear={clearAll}
-          onTransform={updateTransform}
-          onZoomIn={() => setZoom((prev) => Math.min(prev + 0.1, 2))}
-          onZoomOut={() => setZoom((prev) => Math.max(prev - 0.1, 0.5))}
-          onResetZoom={() => setZoom(1)}
-        />
+    <>
+      <CustomCanvas
+        mode={mode}
+        baseImage={mode === "watch" ? watch.image : null}
+        items={items}
+        zoom={zoom}
+        onRemove={removeItem}
+        onClear={clearAll}
+        onTransform={updateTransform}
+        onZoomIn={() => setZoom((prev) => Math.min(prev + 0.1, 2))}
+        onZoomOut={() => setZoom((prev) => Math.max(prev - 0.1, 0.5))}
+        onResetZoom={() => setZoom(1)}
+      />
 
-        {mode === "watch" && (
-          <CustomPicker
-            title="Pilih Watch"
-            items={watchCustom}
-            categories={watchCategories}
-            getCategory={(w) => w.watchCategory}
-            onSelect={setWatch}
-            selectedId={watch.id}
-          />
-        )}
-
+      {mode === "watch" && (
         <CustomPicker
-          title="Pilih Charm"
-          items={charms}
-          categories={charmCategories}
-          getCategory={(c) => c.charmCategory}
-          onSelect={addCharm}
-          showSolBasic
+          title="Pilih Watch"
+          items={watchCustom}
+          categories={watchCategories}
+          getCategory={(w) => w.watchCategory}
+          onSelect={setWatch}
+          selectedId={watch.id}
         />
+      )}
 
-        <CustomSummary items={items} watch={mode === "watch" ? watch : null} />
-      </div>
-    </section>
+      <CustomPicker
+        title="Pilih Charm"
+        items={charms}
+        categories={charmCategories}
+        getCategory={(c) => c.charmCategory}
+        onSelect={addCharm}
+        showSolBasic
+      />
+
+      <CustomSummary items={items} watch={mode === "watch" ? watch : null} />
+    </>
   );
 };
 

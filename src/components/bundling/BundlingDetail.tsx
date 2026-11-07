@@ -1,9 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { FiArrowLeft } from "react-icons/fi";
 import BundlingHero from "./BundlingHero";
+import BundlingOthers from "./BundlingOthers";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import SizingLink from "@/components/ui/SizingLink";
 import CustomPicker from "@/components/custom/CustomPicker";
 import CustomSummary from "@/components/custom/CustomSummary";
 import { charmCustom } from "@/data/charmCustom";
@@ -29,11 +30,13 @@ const categoryLabel: Record<string, string> = {
 };
 
 type Props = {
+  crumbs: { name: string; path: string }[];
   pkg: BundlingPackage;
   product: Product;
+  others: Product[];
 };
 
-const BundlingDetail = ({ pkg, product }: Props) => {
+const BundlingDetail = ({ crumbs, pkg, product, others }: Props) => {
   const [selectedCharms, setSelectedCharms] = useState<CharmCustom[]>([]);
 
   const allQuotasMet = useMemo(() => {
@@ -85,17 +88,15 @@ const BundlingDetail = ({ pkg, product }: Props) => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-rose-50 via-rose-100">
-      <div className="container mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 md:px-8 lg:px-12">
-        <Link
-          href="/collections"
-          className="inline-flex items-center gap-2 text-sm text-slate-600 transition hover:text-rose-700"
-        >
-          <FiArrowLeft />
-          <span>Kembali ke Koleksi</span>
-        </Link>
+    <section className="bg-white">
+      <div className="container mx-auto flex max-w-7xl flex-col gap-5 px-5 pb-12 pt-20 md:px-8 md:pb-16 md:pt-24 lg:px-12">
+        <div className="mb-3">
+          <Breadcrumb items={crumbs} />
+        </div>
 
         <BundlingHero product={product} description={pkg.description} />
+
+        <SizingLink label="Cek ukuran gelang sebelum memesan" />
 
         <div className="flex flex-col gap-4">
           <h2 className="text-lg font-bold text-slate-900">Pilih Charm Bonus</h2>
@@ -127,15 +128,19 @@ const BundlingDetail = ({ pkg, product }: Props) => {
           })}
         </div>
 
-        <CustomSummary
-          mode="bundling"
-          items={selectedCharms}
-          watch={null}
-          productName={product.name}
-          productPrice={product.price}
-          disabled={!allQuotasMet}
-          onOrder={handleOrder}
-        />
+        <div data-aos="fade-up">
+          <CustomSummary
+            mode="bundling"
+            items={selectedCharms}
+            watch={null}
+            productName={product.name}
+            productPrice={product.price}
+            disabled={!allQuotasMet}
+            onOrder={handleOrder}
+          />
+        </div>
+
+        <BundlingOthers products={others} />
       </div>
     </section>
   );

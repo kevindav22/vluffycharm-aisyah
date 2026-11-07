@@ -47,9 +47,9 @@ const testimonials = [
 
 const stats = [
   { value: 4.8, decimals: 1, suffix: '★', label: 'Rating' },
-  { value: 127, suffix: '+', label: 'Pesanan' },
+  { value: 5, suffix: 'Rb+', label: 'Pesanan' },
   { value: 96, suffix: '%', label: 'Puas' },
-  { value: 24, suffix: '+', label: 'Charm' },
+  { value: 637, suffix: '+', label: 'Charm' },
 ];
 
 const TestimonialSection = () => {
@@ -63,7 +63,7 @@ const TestimonialSection = () => {
       <div className="container mx-auto max-w-7xl py-6 md:py-12 px-5 md:px-8 lg:px-12">
         <h2 className="text-xl font-bold leading-tight text-slate-900 md:text-2xl">Apa Kata Mereka?</h2>
 
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div data-aos="fade-up" className="overflow-hidden" ref={emblaRef}>
           <div className="-ml-6 flex">
             {testimonials.map((item) => (
               <div key={item.name} className="min-w-0 flex-[0_0_100%] pl-6 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]">
@@ -87,7 +87,10 @@ const TestimonialSection = () => {
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-4 rounded-xl border border-rose-100 bg-gradient-to-r from-rose-50 via-white to-fuchsia-50 p-6 md:grid-cols-4">
+        <div
+          data-aos="fade-up"
+          className="mt-8 grid grid-cols-2 gap-4 rounded-xl border border-rose-100 bg-gradient-to-r from-rose-50 via-white to-fuchsia-50 p-6 md:grid-cols-4"
+        >
           {stats.map((item) => (
             <div key={item.label} className="text-center">
               <div className="mb-1 text-2xl font-black text-rose-900 md:text-3xl">

@@ -10,10 +10,6 @@ type Props = {
   children: ReactNode;
 };
 
-/**
- * Link WhatsApp dengan tracking, tanpa memaksa seluruh parent
- * jadi client component. Dipakai di Footer (server component).
- */
 const TrackedWaLink = ({ href, placement, className, children }: Props) => {
   return (
     <a

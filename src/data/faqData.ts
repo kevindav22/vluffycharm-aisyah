@@ -1,5 +1,3 @@
-// Sumber tunggal FAQ. Dipakai oleh komponen FAQSection dan JSON-LD FAQPage,
-// supaya teks yang tampil di halaman selalu sama dengan yang dibaca Google.
 export type FaqItem = {
   question: string;
   answer: string;

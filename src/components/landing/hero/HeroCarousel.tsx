@@ -41,12 +41,12 @@ const HeroCarousel = ({ images }: { images: TypesCaraousel["img"] }) => {
               <SafeImage
                 src={src}
                 fill
-                // Hanya slide pertama yang perlu diprioritaskan (LCP).
-                // Sisanya lazy; slide non-aktif tidak menahan render awal.
+
                 priority={index === 0}
                 loading={index === 0 ? "eager" : "lazy"}
                 quality={index === 0 ? 75 : 60}
                 sizes="100vw"
+                style={{ aspectRatio: "16 / 9" }}
                 alt={`Koleksi ${profilData.name} - tampilan ${index + 1}`}
                 className="object-cover"
               />
@@ -59,7 +59,7 @@ const HeroCarousel = ({ images }: { images: TypesCaraousel["img"] }) => {
       <div className="pointer-events-none absolute inset-0 flex flex-col justify-between items-center py-8 md:py-12 px-6 text-center">
         <div className="h-14" />
         <h1 className="max-w-2xl text-2xl font-semibold text-white drop-shadow-md sm:text-4xl md:text-5xl">
-          Create Something That Tells Your Story
+          Charm Bracelet Custom, Ceritamu Sendiri
         </h1>
 
         <div className="pointer-events-auto z-10 flex items-center gap-1 pb-12 md:pb-4">
@@ -72,7 +72,7 @@ const HeroCarousel = ({ images }: { images: TypesCaraousel["img"] }) => {
               onClick={() => scrollTo(index)}
               className="group flex size-6 items-center justify-center rounded-full outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              {/* Ukuran dot tetap; hanya transform/opacity yang dianimasikan agar composited. */}
+              {}
               <span
                 className={`block h-1.5 rounded-full bg-white transition-[transform,opacity] duration-300 ${
                   selectedIndex === index

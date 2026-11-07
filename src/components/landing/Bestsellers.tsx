@@ -39,10 +39,12 @@ const Bestsellers = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <Link
               key={product.id}
               href={resolveHref(product)}
+              data-aos="fade-up"
+              data-aos-delay={(index % 4) * 80}
               className="group relative flex flex-col overflow-hidden rounded-xl border border-rose-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-rose-200"
             >
               <div className="relative aspect-square w-full overflow-hidden bg-rose-50">
@@ -51,6 +53,7 @@ const Bestsellers = () => {
                   alt={product.name}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  style={{ aspectRatio: "1 / 1" }}
                   className="object-cover transition-transform"
                 />
                 <span className="absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-rose-900 backdrop-blur">

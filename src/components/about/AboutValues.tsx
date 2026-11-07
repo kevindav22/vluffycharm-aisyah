@@ -32,6 +32,8 @@ const AboutValues = () => {
           {values.map((value, index) => (
             <div
               key={index}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
               className="flex gap-4 rounded-2xl border border-rose-100 bg-white p-6 shadow-sm transition hover:-translate-y-1"
             >
               <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-rose-100 text-rose-900">

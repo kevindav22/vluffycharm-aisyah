@@ -2,8 +2,6 @@
 
 import { RefObject } from 'react';
 
-// html-to-image berat (~83 KiB) dan hanya dipakai saat user menekan tombol
-// download. Dimuat dinamis agar tidak masuk initial bundle.
 const useCustomExport = (canvasRef: RefObject<HTMLDivElement | null>, filename = 'charm-design-vluffy') => {
   const handleDownload = async () => {
     if (!canvasRef.current) return;

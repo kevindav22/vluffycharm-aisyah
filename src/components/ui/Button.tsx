@@ -57,7 +57,6 @@ interface WhatsAppButtonProps {
   children?: ReactNode;
   variant?: Variant;
   className?: string;
-  /** Penanda lokasi tombol untuk atribusi di GA4, mis. "header" / "footer". */
   placement?: string;
 }
 
