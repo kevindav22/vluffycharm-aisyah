@@ -14,7 +14,7 @@ const crumbs = [
 export const metadata: Metadata = {
   title: "Koleksi Charm Bracelet & Jam Tangan Custom",
   description:
-    "Pilih charm bracelet siap pakai, jam tangan custom watch ready, dan paket bundling hemat dari Vluffy Accessories. Atau rangkai gelang charm sendiri sesuai ceritamu.",
+    "Pilih charm bracelet siap pakai, jam tangan custom watch ready, dan paket bundling hemat dari Vluffy Store. Atau rangkai gelang charm sendiri sesuai ceritamu.",
   alternates: {
     canonical: "/collections",
   },
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     url: "/collections",
     title: "Koleksi Charm Bracelet & Jam Tangan Custom | Vluffy",
     description:
-      "Koleksi bracelet siap pakai, jam tangan custom watch ready, dan paket bundling hemat Vluffy Accessories.",
+      "Koleksi bracelet siap pakai, jam tangan custom watch ready, dan paket bundling hemat Vluffy Store.",
     images: [
-      { url: "/img/bracelet.webp", alt: "Koleksi charm bracelet Vluffy Accessories" },
+      { url: "/img/bracelet.webp", alt: "Koleksi charm bracelet Vluffy Store" },
     ],
   },
 };
@@ -35,7 +35,7 @@ export default function CollectionPage() {
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <JsonLd
         data={itemListSchema({
-          name: "Koleksi Vluffy Accessories",
+          name: "Koleksi Vluffy Store",
           items: productData.map((product) => ({
             name: product.name,
             path:

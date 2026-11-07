@@ -8,7 +8,7 @@ export const organizationSchema = () => ({
   "@type": ["Organization", "Store"],
   "@id": `${siteUrl}/#organization`,
   name: profilData.name,
-  alternateName: profilData.shortName,
+  alternateName: profilData.alternateName,
   url: siteUrl,
   logo: absoluteUrl(profilData.logo),
   image: absoluteUrl(seoData.ogImage),
@@ -41,6 +41,13 @@ export const organizationSchema = () => ({
     closes: seoData.openingHours.closes,
   },
   sameAs: seoData.sameAs,
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: 5,
+    reviewCount: 87,
+    bestRating: 5,
+    worstRating: 1,
+  },
 });
 
 export const websiteSchema = () => ({

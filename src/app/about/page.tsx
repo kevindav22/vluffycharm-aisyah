@@ -9,17 +9,17 @@ import SizingLink from "@/components/ui/SizingLink";
 export const metadata: Metadata = {
   title: "Tentang Kami",
   description:
-    "Vluffy Accessories adalah workshop aksesoris handmade di Yogyakarta yang membuat charm bracelet dan jam tangan custom sejak dari workshop kecil.",
+    "Vluffy Store adalah workshop aksesoris handmade di Yogyakarta yang membuat charm bracelet dan jam tangan custom sejak dari workshop kecil.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     url: "/about",
-    title: "Tentang Vluffy Accessories",
+    title: "Tentang Vluffy Store",
     description:
       "Workshop aksesoris handmade di Yogyakarta. Setiap charm dan jam tangan custom adalah cerita yang kamu bawa.",
     images: [
-      { url: "/og-image.png", width: 1200, height: 630, alt: "Vluffy Accessories Yogyakarta" },
+      { url: "/og-image.png", width: 1200, height: 630, alt: "Vluffy Store Yogyakarta" },
     ],
   },
 };

@@ -15,7 +15,7 @@ const SizingHowTo = () => (
     >
       <SafeImage
         src="/img/sizing.webp"
-        alt="Cara mengukur pergelangan tangan untuk gelang charm Vluffy Accessories"
+        alt="Cara mengukur pergelangan tangan untuk gelang charm Vluffy Store"
         fill
         priority
         sizes="(max-width: 1024px) 100vw, 55vw"

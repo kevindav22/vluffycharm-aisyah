@@ -24,7 +24,7 @@ const AboutIntro = () => {
             className="flex flex-col justify-center gap-4 md:gap-6"
           >
             <h1 className="text-2xl font-black text-slate-900 md:text-3xl lg:text-4xl">
-              Vluffy Accessories
+              Vluffy Store
             </h1>
             <div className="flex flex-col gap-3 text-sm text-slate-600 md:gap-4 md:text-base">
               <p className="leading-relaxed">

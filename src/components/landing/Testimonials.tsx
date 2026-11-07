@@ -3,53 +3,16 @@
 import CountUp from 'react-countup';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
-import { FiStar } from 'react-icons/fi';
+import { FiStar, FiExternalLink } from 'react-icons/fi';
 import { FaUserCircle } from 'react-icons/fa';
-
-const testimonials = [
-  {
-    name: 'Alya Putri',
-    city: 'Jakarta',
-    rating: 5,
-    review: 'Charm yang datang persis seperti preview. Detailnya rapi, cantik, dan terasa dibuat dengan sangat teliti.',
-  },
-  {
-    name: 'Nadia Safira',
-    city: 'Bandung',
-    rating: 4,
-    review: 'Suka karena bisa menyusun charm sesuai cerita sendiri. Hasil akhirnya terasa lebih personal dibanding aksesori biasa.',
-  },
-  {
-    name: 'Rania Maharani',
-    city: 'Surabaya',
-    rating: 5,
-    review: 'Packaging cantik dan cocok dijadikan hadiah. Saat dibuka rasanya benar-benar spesial.',
-  },
-  {
-    name: 'Dinda Rahma',
-    city: 'Bekasi',
-    rating: 5,
-    review: 'Awalnya hanya coba satu bracelet, ternyata kualitasnya sangat bagus dan nyaman dipakai sehari-hari.',
-  },
-  {
-    name: 'Tiara Lestari',
-    city: 'Yogyakarta',
-    rating: 4,
-    review: 'Admin sangat membantu saat proses revisi desain. Hasil akhirnya sesuai dengan yang saya inginkan.',
-  },
-  {
-    name: 'Nabila Azzahra',
-    city: 'Malang',
-    rating: 5,
-    review: 'Charm-nya unik dan tidak pasaran. Cocok untuk menyimpan kenangan yang ingin selalu dikenang.',
-  },
-];
+import { testimonials } from '@/data/testimonialData';
+import { profilData } from '@/data/statisData';
 
 const stats = [
-  { value: 4.8, decimals: 1, suffix: '★', label: 'Rating' },
-  { value: 5, suffix: 'Rb+', label: 'Pesanan' },
-  { value: 96, suffix: '%', label: 'Puas' },
-  { value: 637, suffix: '+', label: 'Charm' },
+  { value: 5.0, decimals: 1, suffix: '', label: 'Rating Google' },
+  { value: 87, suffix: '', label: 'Ulasan' },
+  { value: 443, suffix: '', label: 'Charm' },
+  { value: 14, suffix: '', label: 'Kategori Charm' },
 ];
 
 const TestimonialSection = () => {
@@ -59,26 +22,47 @@ const TestimonialSection = () => {
   );
 
   return (
-    <section className="bg-white ">
-      <div className="container mx-auto max-w-7xl py-6 md:py-12 px-5 md:px-8 lg:px-12">
-        <h2 className="text-xl font-bold leading-tight text-slate-900 md:text-2xl">Apa Kata Mereka?</h2>
+    <section className="bg-white">
+      <div className="container mx-auto max-w-7xl px-5 py-6 md:px-8 md:py-12 lg:px-12">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="text-xl font-bold leading-tight text-slate-900 md:text-2xl">
+            Ulasan Pengunjung Google
+          </h2>
+          <a
+            href={profilData.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-rose-900 transition hover:text-rose-700"
+          >
+            Lihat semua di Google Maps
+            <FiExternalLink />
+          </a>
+        </div>
 
-        <div data-aos="fade-up" className="overflow-hidden" ref={emblaRef}>
+        <div data-aos="fade-up" className="mt-6 overflow-hidden" ref={emblaRef}>
           <div className="-ml-6 flex">
             {testimonials.map((item) => (
-              <div key={item.name} className="min-w-0 flex-[0_0_100%] pl-6 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]">
+              <div
+                key={item.name}
+                className="min-w-0 flex-[0_0_100%] pl-6 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
+              >
                 <article className="flex h-full flex-col rounded-xl border border-rose-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-rose-200 hover:shadow-lg">
-                  <div className="mb-2 flex gap-1">
+                  <div className="mb-2 flex gap-1" aria-label="5 dari 5 bintang">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <FiStar key={star} className={`size-5 ${star <= item.rating ? 'fill-amber-400 text-amber-400' : 'text-amber-300'}`} />
+                      <FiStar
+                        key={star}
+                        className="size-5 fill-amber-400 text-amber-400"
+                      />
                     ))}
                   </div>
-                  <p className="mb-3 flex-1 leading-relaxed text-slate-600">&quot;{item.review}&quot;</p>
+                  <p className="mb-3 flex-1 leading-relaxed text-slate-600">
+                    &quot;{item.review}&quot;
+                  </p>
                   <div className="flex items-center gap-3 border-t border-rose-100 pt-4">
                     <FaUserCircle className="text-5xl text-rose-400" />
                     <div>
                       <h3 className="font-bold text-slate-900">{item.name}</h3>
-                      <p className="text-sm text-slate-500">{item.city}</p>
+                      <p className="text-sm text-slate-500">{item.date}</p>
                     </div>
                   </div>
                 </article>
@@ -94,7 +78,13 @@ const TestimonialSection = () => {
           {stats.map((item) => (
             <div key={item.label} className="text-center">
               <div className="mb-1 text-2xl font-black text-rose-900 md:text-3xl">
-                <CountUp end={item.value} duration={2.5} decimals={item.decimals || 0} enableScrollSpy scrollSpyOnce />
+                <CountUp
+                  end={item.value}
+                  duration={2.5}
+                  decimals={item.decimals || 0}
+                  enableScrollSpy
+                  scrollSpyOnce
+                />
                 {item.suffix}
               </div>
               <p className="text-sm text-slate-600">{item.label}</p>

@@ -5,9 +5,9 @@ export const localPage = {
   heading: "Charm Bracelet Custom di Jogja",
   title: "Charm Bracelet Jogja — Gelang Charm Custom Sleman",
   description:
-    "Cari charm bracelet di Jogja? Vluffy Accessories di Condongcatur, Sleman membuat gelang charm custom dan jam tangan custom handmade. Bisa datang langsung atau pesan via WhatsApp.",
+    "Cari charm bracelet di Jogja? Vluffy Store di Condongcatur, Sleman membuat gelang charm custom dan jam tangan custom handmade. Bisa datang langsung atau pesan via WhatsApp.",
   intro: [
-    "Vluffy Accessories berdomisili di Jl. Nusa Indah No.58, Ngringin, Condongcatur, Kecamatan Depok, Kabupaten Sleman. Dari Ring Road Utara atau jalan Kaliurang, lokasinya sekitar 5-10 menit berkendara. Kalau kamu pernah lewat kawasan Condongcatur, mungkin sudah melihat workshop kami.",
+    "Vluffy Store berdomisili di Jl. Nusa Indah No.58, Ngringin, Condongcatur, Kecamatan Depok, Kabupaten Sleman. Dari Ring Road Utara atau jalan Kaliurang, lokasinya sekitar 5-10 menit berkendara. Kalau kamu pernah lewat kawasan Condongcatur, mungkin sudah melihat workshop kami.",
     "Hampir semua pembeli kami memilih dua jalur: datang langsung untuk melihat dan mencoba charm, atau memesan dari jauh lewat WhatsApp karena di Jogja sendiri banyak mahasiswa dan pekerja pendatang yang akhirnya memesan lagi setelah pulang ke kota asal. Untuk yang memesan dari luar kota, kami kirim setelah desain dikonfirmasi.",
     "Gelang charm yang kami buat memakai base stainless anti karat, bukan logam campuran yang mudah menghitam. Ini penting untuk Jogja karena kelembapan dan cuaca panas membuat gelang murah cepat berubah warna, terutama kalau sering dipakai harian atau terkena keringat saat naik motor.",
   ],
@@ -45,7 +45,7 @@ export const localPage = {
 
 export const localFaq: FaqItem[] = [
   {
-    question: "Di mana lokasi toko Vluffy Accessories?",
+    question: "Di mana lokasi toko Vluffy Store?",
     answer:
       "Jl. Nusa Indah No.58, Ngringin, Condongcatur, Kecamatan Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55283. Titik lokasinya bisa dibuka langsung lewat Google Maps di halaman ini.",
   },

@@ -31,7 +31,7 @@ Mohon info selanjutnya untuk proses pemesanan. Terima kasih.`;
       >
         <SafeImage
           src={product.image}
-          alt={`${product.name} ${info.heading} Vluffy Accessories`}
+          alt={`${product.name} ${info.heading} Vluffy Store`}
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 50vw"
@@ -64,7 +64,7 @@ Mohon info selanjutnya untuk proses pemesanan. Terima kasih.`;
 
         <ul className="flex flex-col gap-2 text-sm text-slate-600">
           <li>Base stainless anti karat, aman untuk kulit sensitif.</li>
-          <li>Dirangkai manual oleh Vluffy Accessories.</li>
+          <li>Dirangkai manual oleh Vluffy Store.</li>
           <li>Ukuran bisa disesuaikan saat konfirmasi via WhatsApp.</li>
         </ul>
 

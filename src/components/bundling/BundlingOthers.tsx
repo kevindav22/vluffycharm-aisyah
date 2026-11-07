@@ -27,7 +27,7 @@ const BundlingOthers = ({ products }: Props) => {
               <div className="relative size-16 shrink-0 overflow-hidden rounded-lg bg-rose-50">
                 <SafeImage
                   src={item.image}
-                  alt={`${item.name} paket bundling charm bracelet Vluffy Accessories`}
+                  alt={`${item.name} paket bundling charm bracelet Vluffy Store`}
                   fill
                   sizes="64px"
                   style={{ aspectRatio: "1 / 1" }}

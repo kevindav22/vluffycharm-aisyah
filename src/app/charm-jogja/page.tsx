@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: `${localPage.title} | Vluffy`,
     description: localPage.description,
     images: [
-      { url: "/img/bracelet.webp", alt: "Charm bracelet Vluffy Accessories" },
+      { url: "/img/bracelet.webp", alt: "Charm bracelet Vluffy Store" },
     ],
   },
 };

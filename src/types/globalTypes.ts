@@ -4,6 +4,7 @@ export type TypesCaraousel = {
 
 export type TypesProfile = {
   name: string;
+  alternateName: string;
   shortName: string;
   logo: string;
   tagline: string;

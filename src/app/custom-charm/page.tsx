@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description:
       "Rangkai gelang charm custom sendiri. Pilih base, susun charm, atur posisi, lalu pesan via WhatsApp.",
     images: [
-      { url: "/og-image.png", width: 1200, height: 630, alt: "Gelang charm custom Vluffy Accessories" },
+      { url: "/og-image.png", width: 1200, height: 630, alt: "Gelang charm custom Vluffy Store" },
     ],
   },
 };

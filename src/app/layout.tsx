@@ -107,12 +107,12 @@ const RootLayout = ({
       <body className="antialiased touch-manipulation">
         <JsonLd data={organizationSchema()} />
         <JsonLd data={websiteSchema()} />
+        <GoogleTagManager />
         <AosProvider />
         <Header />
         <main>{children}</main>
         <Footer />
       </body>
-      <GoogleTagManager />
     </html>
   );
 };

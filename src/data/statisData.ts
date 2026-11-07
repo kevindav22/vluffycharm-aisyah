@@ -10,7 +10,8 @@ export const carouselImg: TypesCaraousel = {
 };
 
 export const profilData: TypesProfile = {
-  name: "Vluffy Accessories",
+  name: "Vluffy Store",
+  alternateName: "Vluffy Accessories",
   shortName: "Vluffy",
   logo: "/logo/logovluffy.webp",
   tagline: "Handmade Accessories",
@@ -21,7 +22,7 @@ export const profilData: TypesProfile = {
   mapsUrl:
     "https://www.google.com/maps/place/Vluffy+Store/@-7.7561768,110.409622,17z/data=!4m6!3m5!1s0x2e7a599d042723f5:0xb50947a1dbb808bd!8m2!3d-7.7561768!4d110.409622!16s%2Fg%2F11zz4sgqrc",
   pesanUmum:
-    "Halo kak, saya ingin bertanya tanya terkait pembelian produk apakah bisa?, saya sangat tertarik dengan produk yang dimiliki Vluffy Accessories",
+    "Halo kak, saya ingin bertanya tanya terkait pembelian produk apakah bisa?, saya sangat tertarik dengan produk yang dimiliki Vluffy Store",
   socialMedia: {
     instagram: "https://www.instagram.com/vluffy.craft",
     tiktok: "https://www.tiktok.com/@vluffy.craft",

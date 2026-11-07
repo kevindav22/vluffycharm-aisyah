@@ -25,7 +25,7 @@ const fastMenuItems = [
 const FastMenuSection = () => {
   return (
     <section className="bg-gradient-to-b from-white via-rose-50/40 to-white px-5 py-8 md:px-8 md:py-14 lg:px-12">
-      <h2 className="sr-only">Layanan Vluffy Accessories</h2>
+      <h2 className="sr-only">Layanan Vluffy Store</h2>
       <div className="container mx-auto max-w-6xl">
         <div data-aos="fade-up" className="grid gap-4 md:grid-cols-3 md:gap-5">
           {fastMenuItems.map(({ title, description, href, actionText }, index) => (

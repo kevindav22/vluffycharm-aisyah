@@ -144,17 +144,17 @@ export const categoryFallback: Record<
 > = {
   bracelet: {
     description:
-      "Bracelet charm siap pakai dari Vluffy Accessories. Dirangkai manual dengan bahan stainless anti karat, aman untuk kulit sensitif, dan bisa dipakai harian.",
+      "Bracelet charm siap pakai dari Vluffy Store. Dirangkai manual dengan bahan stainless anti karat, aman untuk kulit sensitif, dan bisa dipakai harian.",
     keywords: ["gelang charm", "charm bracelet", "bracelet siap pakai"],
   },
   "watch-ready": {
     description:
-      "Jam tangan custom watch ready dari Vluffy Accessories. Kombinasi jam dan charm yang sudah dirangkai, siap dipakai tanpa perlu kustomisasi.",
+      "Jam tangan custom watch ready dari Vluffy Store. Kombinasi jam dan charm yang sudah dirangkai, siap dipakai tanpa perlu kustomisasi.",
     keywords: ["jam tangan custom", "watch ready", "jam tangan charm"],
   },
   bundling: {
     description:
-      "Paket bundling charm bracelet Vluffy Accessories. Base gelang dan charm bonus dipilih sendiri sesuai aturan tiap paket, harga lebih hemat.",
+      "Paket bundling charm bracelet Vluffy Store. Base gelang dan charm bonus dipilih sendiri sesuai aturan tiap paket, harga lebih hemat.",
     keywords: ["bundling charm", "paket gelang charm", "italian charm bracelet"],
   },
 };

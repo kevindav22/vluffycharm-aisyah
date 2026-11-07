@@ -24,6 +24,6 @@ export const sizingPage = {
   slug: "panduan-ukuran",
   title: "Panduan Ukuran Gelang Charm — Tabel Lingkar & Jumlah Mata",
   description:
-    "Tabel ukuran gelang charm Vluffy Accessories: lingkar pergelangan dalam cm dan inci, saran jumlah mata, plus cara mengukur pergelangan tangan yang benar.",
+    "Tabel ukuran gelang charm Vluffy Store: lingkar pergelangan dalam cm dan inci, saran jumlah mata, plus cara mengukur pergelangan tangan yang benar.",
   heading: "Panduan Ukuran Gelang Charm",
 };

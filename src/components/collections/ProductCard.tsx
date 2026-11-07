@@ -34,7 +34,7 @@ const ProductCard = ({ product, aosDelay = 0 }: Props) => {
       <div className="relative aspect-square w-full bg-rose-50">
         <SafeImage
           src={product.image}
-          alt={`${product.name} ${categoryLabel[product.category]} Vluffy Accessories`}
+          alt={`${product.name} ${categoryLabel[product.category]} Vluffy Store`}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           style={{ aspectRatio: "1 / 1" }}

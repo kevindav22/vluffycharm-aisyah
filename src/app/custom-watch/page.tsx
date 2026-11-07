@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description:
       "Kustomisasi jam tangan sesuai gayamu. Pilih tipe jam, padukan charm, lalu pesan via WhatsApp.",
     images: [
-      { url: "/og-image.png", width: 1200, height: 630, alt: "Jam tangan custom Vluffy Accessories" },
+      { url: "/og-image.png", width: 1200, height: 630, alt: "Jam tangan custom Vluffy Store" },
     ],
   },
 };

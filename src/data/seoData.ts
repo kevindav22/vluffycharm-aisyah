@@ -5,9 +5,9 @@ export const seoData: TypesSeo = {
   ogImage: "/og-image.png",
   locale: "id_ID",
   themeColor: "#fda4af",
-  title: "Charm Bracelet Custom Handmade — Vluffy Accessories",
+  title: "Charm Bracelet Custom Handmade — Vluffy Store",
   description:
-    "Vluffy Accessories menjual charm bracelet dan jam tangan custom handmade di Sleman, Yogyakarta. Pilih koleksi siap pakai atau rangkai gelang charm sendiri.",
+    "Vluffy Store menjual charm bracelet dan jam tangan custom handmade di Sleman, Yogyakarta. Pilih koleksi siap pakai atau rangkai gelang charm sendiri.",
   keywords: [
     "charm bracelet",
     "gelang charm",

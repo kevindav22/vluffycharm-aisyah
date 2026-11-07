@@ -27,7 +27,7 @@ const features = [
 const WhyChooseUsSection = () => {
   return (
     <section className="relative z-30 mx-auto -mt-16 max-w-7xl px-4 md:-mt-12 px-5 md:px-8 lg:px-12">
-      <h2 className="sr-only">Keunggulan Vluffy Accessories</h2>
+      <h2 className="sr-only">Keunggulan Vluffy Store</h2>
       <div className="rounded-xl bg-white p-4 shadow-md md:rounded-2xl md:p-7">
         <div
           data-aos="fade-up"
