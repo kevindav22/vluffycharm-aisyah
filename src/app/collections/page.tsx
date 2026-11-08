@@ -24,7 +24,12 @@ export const metadata: Metadata = {
     description:
       "Koleksi bracelet siap pakai, jam tangan custom watch ready, dan paket bundling hemat Vluffy Store.",
     images: [
-      { url: "/img/bracelet.webp", alt: "Koleksi charm bracelet Vluffy Store" },
+      {
+        url: "/og-collections.png",
+        width: 1200,
+        height: 630,
+        alt: "Koleksi charm bracelet Vluffy Store",
+      },
     ],
   },
 };

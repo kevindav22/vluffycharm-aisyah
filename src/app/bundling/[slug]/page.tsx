@@ -64,7 +64,14 @@ export async function generateMetadata({
       url: `/bundling/${slug}`,
       title: `${title} | Vluffy`,
       description,
-      images: [{ url: product.image, alt: product.name }],
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `${product.name} Vluffy Store`,
+        },
+      ],
     },
   };
 }

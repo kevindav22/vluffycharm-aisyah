@@ -23,7 +23,14 @@ export const metadata: Metadata = {
     url: path,
     title: `${sizingPage.title} | Vluffy`,
     description: sizingPage.description,
-    images: [{ url: "/img/sizing.webp", alt: sizingPage.heading }],
+    images: [
+      {
+        url: "/og-sizing.png",
+        width: 1200,
+        height: 630,
+        alt: sizingPage.heading,
+      },
+    ],
   },
 };
 

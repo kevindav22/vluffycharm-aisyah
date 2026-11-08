@@ -17,9 +17,9 @@ import { slugify } from "@/lib/utils";
 type Params = { kategori: string };
 
 const categoryOgImage: Record<string, string> = {
-  bracelet: "/img/bracelet.webp",
-  "watch-ready": "/img/watchandbracelet.webp",
-  bundling: "/img/3dcharm.webp",
+  bracelet: "/og-collections.png",
+  "watch-ready": "/og-watch.png",
+  bundling: "/og-bundling.png",
 };
 
 export function generateStaticParams() {
@@ -48,8 +48,8 @@ export async function generateMetadata({
       images: [
         {
           url: categoryOgImage[kategori],
-          width: 1000,
-          height: 1000,
+          width: 1200,
+          height: 630,
           alt: info.heading,
         },
       ],
