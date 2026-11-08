@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     canonical: "/collections",
   },
   openGraph: {
+    type: "website",
     url: "/collections",
     title: "Koleksi Charm Bracelet & Jam Tangan Custom | Vluffy",
     description:

@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     canonical: "/custom-charm",
   },
   openGraph: {
+    type: "website",
     url: "/custom-charm",
     title: "Gelang Charm Custom — Rangkai Sendiri | Vluffy",
     description:

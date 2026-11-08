@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   description: sizingPage.description,
   alternates: { canonical: path },
   openGraph: {
+    type: "website",
     url: path,
     title: `${sizingPage.title} | Vluffy`,
     description: sizingPage.description,

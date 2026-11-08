@@ -42,6 +42,7 @@ export async function generateMetadata({
     description: info.description,
     alternates: { canonical: path },
     openGraph: {
+      type: "website",
       url: path,
       title: `${info.title} | Vluffy`,
       description: info.description,

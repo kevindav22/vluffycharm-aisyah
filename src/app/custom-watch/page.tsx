@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     canonical: "/custom-watch",
   },
   openGraph: {
+    type: "website",
     url: "/custom-watch",
     title: "Jam Tangan Custom — Padukan Charm Favoritmu | Vluffy",
     description:

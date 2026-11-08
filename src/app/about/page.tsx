@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
   openGraph: {
+    type: "website",
     url: "/about",
     title: "Tentang Vluffy Store",
     description:

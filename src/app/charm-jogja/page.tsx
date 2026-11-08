@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   description: localPage.description,
   alternates: { canonical: path },
   openGraph: {
+    type: "website",
     url: path,
     title: `${localPage.title} | Vluffy`,
     description: localPage.description,
