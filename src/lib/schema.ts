@@ -1,6 +1,7 @@
 import { faqData, type FaqItem } from "@/data/faqData";
 import { profilData } from "@/data/statisData";
 import { seoData } from "@/data/seoData";
+import { storeStats } from "@/data/statsData";
 import { absoluteUrl, siteUrl } from "@/lib/seo";
 
 export const organizationSchema = () => ({
@@ -43,8 +44,8 @@ export const organizationSchema = () => ({
   sameAs: seoData.sameAs,
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: 5,
-    reviewCount: 87,
+    ratingValue: storeStats.rating,
+    reviewCount: storeStats.reviewCount,
     bestRating: 5,
     worstRating: 1,
   },

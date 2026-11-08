@@ -4,7 +4,6 @@ import AboutFeatures from "@/components/about/AboutFeatures";
 import AboutGallery from "@/components/about/AboutGallery";
 import Testimonials from "@/components/landing/Testimonials";
 import AboutValues from "@/components/about/AboutValues";
-import SizingLink from "@/components/ui/SizingLink";
 
 export const metadata: Metadata = {
   title: "Tentang Kami",
@@ -32,9 +31,6 @@ export default function AboutPage() {
       <AboutFeatures />
       <AboutGallery />
       <AboutValues />
-      <div className="mx-auto flex max-w-7xl justify-center px-5 pb-12 md:px-8 lg:px-12">
-        <SizingLink label="Lihat panduan ukuran gelang charm" />
-      </div>
       <Testimonials />
     </>
   );

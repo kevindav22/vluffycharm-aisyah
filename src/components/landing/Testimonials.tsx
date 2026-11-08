@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import CountUp from 'react-countup';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
@@ -7,12 +8,13 @@ import { FiStar, FiExternalLink } from 'react-icons/fi';
 import { FaUserCircle } from 'react-icons/fa';
 import { testimonials } from '@/data/testimonialData';
 import { profilData } from '@/data/statisData';
+import { storeStats } from '@/data/statsData';
 
 const stats = [
-  { value: 5.0, decimals: 1, suffix: '', label: 'Rating Google' },
-  { value: 87, suffix: '', label: 'Ulasan' },
-  { value: 443, suffix: '', label: 'Charm' },
-  { value: 14, suffix: '', label: 'Kategori Charm' },
+  { value: storeStats.rating, decimals: 1, suffix: '', label: 'Rating Google' },
+  { value: storeStats.reviewCount, suffix: '', label: 'Ulasan' },
+  { value: storeStats.charmCount, suffix: '', label: 'Charm' },
+  { value: storeStats.charmCategories, suffix: '', label: 'Kategori Charm' },
 ];
 
 const TestimonialSection = () => {
@@ -20,6 +22,26 @@ const TestimonialSection = () => {
     { loop: true, align: 'start' },
     [Autoplay({ delay: 3500, stopOnInteraction: false })],
   );
+
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [counting, setCounting] = useState(false);
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCounting(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="bg-white">
@@ -76,19 +98,22 @@ const TestimonialSection = () => {
         </div>
 
         <div
+          ref={statsRef}
           data-aos="fade-up"
           className="mt-8 grid grid-cols-2 gap-4 rounded-xl border border-rose-100 bg-gradient-to-r from-rose-50 via-white to-fuchsia-50 p-6 md:grid-cols-4"
         >
           {stats.map((item) => (
             <div key={item.label} className="text-center">
               <div className="mb-1 text-2xl font-black text-rose-900 md:text-3xl">
-                <CountUp
-                  end={item.value}
-                  duration={2.5}
-                  decimals={item.decimals || 0}
-                  enableScrollSpy
-                  scrollSpyOnce
-                />
+                {counting ? (
+                  <CountUp
+                    end={item.value}
+                    duration={2.5}
+                    decimals={item.decimals || 0}
+                  />
+                ) : (
+                  item.value.toFixed(item.decimals || 0)
+                )}
                 {item.suffix}
               </div>
               <p className="text-sm text-slate-600">{item.label}</p>

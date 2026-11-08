@@ -1108,8 +1108,8 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  countup.js@2.10.0:
-    resolution: {integrity: sha512-QQpZx7oYxsR+OeITlZe46fY/OQjV11oBqjY8wgIXzLU2jIz8GzOrbMhqKLysGY8bWI3T1ZNrYkwGzKb4JNgyzg==}
+  countup.js@2.10.1:
+    resolution: {integrity: sha512-UHW/BsPDgVZfN919D4iu2HPv+jJxZUuaR3EhT0ScFZaD446GiQtkMTgOnOyJXdA2AewdlyUk9UvERlTHTbVpcw==}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -3106,7 +3106,7 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  countup.js@2.10.0: {}
+  countup.js@2.10.1: {}
 
   cross-spawn@7.0.6:
     dependencies:
@@ -4107,7 +4107,7 @@ snapshots:
 
   react-countup@6.5.3(react@19.2.4):
     dependencies:
-      countup.js: 2.10.0
+      countup.js: 2.10.1
       react: 19.2.4
 
   react-css-styled@1.1.9:
