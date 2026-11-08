@@ -47,7 +47,11 @@ const TestimonialSection = () => {
                 className="min-w-0 flex-[0_0_100%] pl-6 md:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
               >
                 <article className="flex h-full flex-col rounded-xl border border-rose-100 bg-white p-6 shadow-sm transition-all duration-300 hover:border-rose-200 hover:shadow-lg">
-                  <div className="mb-2 flex gap-1" aria-label="5 dari 5 bintang">
+                  <div
+                    className="mb-2 flex gap-1"
+                    role="img"
+                    aria-label="5 dari 5 bintang"
+                  >
                     {[1, 2, 3, 4, 5].map((star) => (
                       <FiStar
                         key={star}
